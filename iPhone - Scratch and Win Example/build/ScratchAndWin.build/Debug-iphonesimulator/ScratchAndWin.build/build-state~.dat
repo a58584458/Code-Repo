@@ -1,0 +1,355 @@
+TScratchAndWin
+v7
+r0
+t317890576.564843
+cCheck dependencies
+cProcessInfoPlistFile /Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app/Info.plist ScratchAndWin-Info.plist
+cCompileXIB /Users/rob/Downloads/ScratchAndWin-2/MainWindow.xib
+cCompileXIB /Users/rob/Downloads/ScratchAndWin-2/CGScratchViewController.xib
+cCpResource build/Debug-iphonesimulator/ScratchAndWin.app/scratchable.jpg scratchable.jpg
+cCpResource build/Debug-iphonesimulator/ScratchAndWin.app/background.jpg background.jpg
+cProcessPCH /var/folders/6I/6Iw9DRqNGhuXiZtlUy6NMU+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/ScratchAndWin_Prefix-dusaunvjnpxurefonxljdxbqapvl/ScratchAndWin_Prefix.pch.gch ScratchAndWin_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/main.o /Users/rob/Downloads/ScratchAndWin-2/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/CGScratchAppDelegate.o /Users/rob/Downloads/ScratchAndWin-2/Classes/CGScratchAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/CGScratchViewController.o /Users/rob/Downloads/ScratchAndWin-2/Classes/CGScratchViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/ScratchView.o /Users/rob/Downloads/ScratchAndWin-2/Classes/../ScratchView.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/ScratchableView.o /Users/rob/Downloads/ScratchAndWin-2/Classes/ScratchableView.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cLd /Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app/ScratchAndWin normal i386
+cGenerateDSYMFile /Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app.dSYM /Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app/ScratchAndWin
+cTouch /Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk
+c000000004CC128950000000000000110
+t1287727253
+s272
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000004CC12246000000000029B310
+t1287725638
+s2732816
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004CC1226D000000000029D5D0
+t1287725677
+s2741712
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004CC1225F0000000000001466
+t1287725663
+s5222
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004CC1281F0000000000000AA1
+t1287727135
+s2721
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000004CC12883000000000074D7B0
+t1287727235
+s7657392
+
+N/Users/rob/Downloads/ScratchAndWin-2/CGScratchViewController.xib
+c000000004D4120A30000000000004D13
+t1296113827
+s19731
+
+N/Users/rob/Downloads/ScratchAndWin-2/Classes/../ScratchView.m
+c000000004D41219F00000000000004FB
+t1296114079
+s1275
+i"ScratchView.h"
+i"ScratchableView.h"
+
+N/Users/rob/Downloads/ScratchAndWin-2/Classes/CGScratchAppDelegate.h
+c000000004D2CB41800000000000001EF
+t1294775320
+s495
+i<UIKit/UIKit.h>
+
+N/Users/rob/Downloads/ScratchAndWin-2/Classes/CGScratchAppDelegate.m
+c000000004D2CB4180000000000000AA3
+t1294775320
+s2723
+i"CGScratchAppDelegate.h"
+i"CGScratchViewController.h"
+
+N/Users/rob/Downloads/ScratchAndWin-2/Classes/CGScratchViewController.h
+c000000004D2CB41800000000000000F8
+t1294775320
+s248
+i<UIKit/UIKit.h>
+
+N/Users/rob/Downloads/ScratchAndWin-2/Classes/CGScratchViewController.m
+c000000004D41201C00000000000005CE
+t1296113692
+s1486
+i"CGScratchViewController.h"
+
+N/Users/rob/Downloads/ScratchAndWin-2/Classes/ScratchableView.h
+c000000004D2CB41800000000000001E5
+t1294775320
+s485
+i<UIKit/UIKit.h>
+
+N/Users/rob/Downloads/ScratchAndWin-2/Classes/ScratchableView.m
+c000000004D2CB4180000000000000B11
+t1294775320
+s2833
+i"ScratchableView.h"
+
+N/Users/rob/Downloads/ScratchAndWin-2/MainWindow.xib
+c000000004D2CB4180000000000004E41
+t1294775320
+s20033
+
+N/Users/rob/Downloads/ScratchAndWin-2/ScratchAndWin_Prefix.pch
+c000000004D2CB41800000000000000BB
+t1294775320
+s187
+i<Foundation/Foundation.h>
+i<UIKit/UIKit.h>
+
+N/Users/rob/Downloads/ScratchAndWin-2/ScratchView.h
+c000000004D4120720000000000000150
+t1296113778
+s336
+i<UIKit/UIKit.h>
+
+N/Users/rob/Downloads/ScratchAndWin-2/background.jpg
+c000000004D2CB4180000000000005330
+t1294775320
+s21296
+
+N/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app
+t1296197776
+s306
+
+N/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app.dSYM
+t1296197776
+s102
+
+N/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app/CGScratchViewController.nib
+t1296197774
+s1554
+
+N/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app/Info.plist
+t1296197773
+s615
+
+N/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app/MainWindow.nib
+t1296197774
+s1127
+
+N/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app/PkgInfo
+t1296197773
+s8
+
+N/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app/ScratchAndWin
+t1296197776
+s27100
+
+N/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app/background.jpg
+t1296197774
+s21296
+
+N/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app/scratchable.jpg
+t1296197774
+s71633
+
+N/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/CGScratchAppDelegate.o
+t1296197776
+s51004
+
+N/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/CGScratchViewController.o
+t1296197776
+s37536
+
+N/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/ScratchAndWin.LinkFileList
+c000000004D42688D00000000000002C9
+t1296197773
+s713
+
+N/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/ScratchView.o
+t1296197776
+s42540
+
+N/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/ScratchableView.o
+t1296197776
+s51980
+
+N/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/main.o
+t1296197776
+s6300
+
+N/Users/rob/Downloads/ScratchAndWin-2/main.m
+c000000004D2CB418000000000000016F
+t1294775320
+s367
+i<UIKit/UIKit.h>
+
+N/Users/rob/Downloads/ScratchAndWin-2/scratchable.jpg
+c000000004D2CB41800000000000117D1
+t1294775320
+s71633
+
+N/var/folders/6I/6Iw9DRqNGhuXiZtlUy6NMU+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/ScratchAndWin_Prefix-dusaunvjnpxurefonxljdxbqapvl/ScratchAndWin_Prefix.pch.gch
+t1296197775
+s15453392
+
+NScratchAndWin-Info.plist
+c000000004D2CB418000000000000038D
+t1294775320
+s909
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies317890573#317890573#0(0"0(0#1#0"8608227616#0"0#
+
+CCompileC build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/CGScratchAppDelegate.o /Users/rob/Downloads/ScratchAndWin-2/Classes/CGScratchAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s317890576.018810
+e317890576.221510
+r1
+xCompileC
+xbuild/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/CGScratchAppDelegate.o
+x/Users/rob/Downloads/ScratchAndWin-2/Classes/CGScratchAppDelegate.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@75"Compile /Users/rob/Downloads/ScratchAndWin-2/Classes/CGScratchAppDelegate.m317890576#317890576#0(0"0(0#0#67"/Users/rob/Downloads/ScratchAndWin-2/Classes/CGScratchAppDelegate.m8608450656#2052"    cd /Users/rob/Downloads/ScratchAndWin-2    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/ScratchAndWin-generated-files.hmap -I/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/ScratchAndWin-own-target-headers.hmap -I/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/ScratchAndWin-all-target-headers.hmap -iquote /Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/ScratchAndWin-project-headers.hmap -F/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator -I/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/include -I/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/DerivedSources/i386 -I/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/DerivedSources -include /var/folders/6I/6Iw9DRqNGhuXiZtlUy6NMU+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/ScratchAndWin_Prefix-dusaunvjnpxurefonxljdxbqapvl/ScratchAndWin_Prefix.pch -c /Users/rob/Downloads/ScratchAndWin-2/Classes/CGScratchAppDelegate.m -o /Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/CGScratchAppDelegate.o0#
+
+CCompileC build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/CGScratchViewController.o /Users/rob/Downloads/ScratchAndWin-2/Classes/CGScratchViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s317890576.097502
+e317890576.182382
+r1
+xCompileC
+xbuild/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/CGScratchViewController.o
+x/Users/rob/Downloads/ScratchAndWin-2/Classes/CGScratchViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@78"Compile /Users/rob/Downloads/ScratchAndWin-2/Classes/CGScratchViewController.m317890576#317890576#0(0"0(0#0#70"/Users/rob/Downloads/ScratchAndWin-2/Classes/CGScratchViewController.m8607876000#2058"    cd /Users/rob/Downloads/ScratchAndWin-2    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/ScratchAndWin-generated-files.hmap -I/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/ScratchAndWin-own-target-headers.hmap -I/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/ScratchAndWin-all-target-headers.hmap -iquote /Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/ScratchAndWin-project-headers.hmap -F/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator -I/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/include -I/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/DerivedSources/i386 -I/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/DerivedSources -include /var/folders/6I/6Iw9DRqNGhuXiZtlUy6NMU+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/ScratchAndWin_Prefix-dusaunvjnpxurefonxljdxbqapvl/ScratchAndWin_Prefix.pch -c /Users/rob/Downloads/ScratchAndWin-2/Classes/CGScratchViewController.m -o /Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/CGScratchViewController.o0#
+
+CCompileC build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/ScratchView.o /Users/rob/Downloads/ScratchAndWin-2/Classes/../ScratchView.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s317890576.182480
+e317890576.391884
+r1
+xCompileC
+xbuild/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/ScratchView.o
+x/Users/rob/Downloads/ScratchAndWin-2/Classes/../ScratchView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@69"Compile /Users/rob/Downloads/ScratchAndWin-2/Classes/../ScratchView.m317890576#317890576#0(0"0(0#0#61"/Users/rob/Downloads/ScratchAndWin-2/Classes/../ScratchView.m8603280192#2037"    cd /Users/rob/Downloads/ScratchAndWin-2    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/ScratchAndWin-generated-files.hmap -I/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/ScratchAndWin-own-target-headers.hmap -I/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/ScratchAndWin-all-target-headers.hmap -iquote /Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/ScratchAndWin-project-headers.hmap -F/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator -I/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/include -I/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/DerivedSources/i386 -I/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/DerivedSources -include /var/folders/6I/6Iw9DRqNGhuXiZtlUy6NMU+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/ScratchAndWin_Prefix-dusaunvjnpxurefonxljdxbqapvl/ScratchAndWin_Prefix.pch -c /Users/rob/Downloads/ScratchAndWin-2/Classes/../ScratchView.m -o /Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/ScratchView.o0#
+
+CCompileC build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/ScratchableView.o /Users/rob/Downloads/ScratchAndWin-2/Classes/ScratchableView.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s317890576.221610
+e317890576.450342
+r1
+xCompileC
+xbuild/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/ScratchableView.o
+x/Users/rob/Downloads/ScratchAndWin-2/Classes/ScratchableView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@70"Compile /Users/rob/Downloads/ScratchAndWin-2/Classes/ScratchableView.m317890576#317890576#0(0"0(0#0#62"/Users/rob/Downloads/ScratchAndWin-2/Classes/ScratchableView.m8604519712#2042"    cd /Users/rob/Downloads/ScratchAndWin-2    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/ScratchAndWin-generated-files.hmap -I/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/ScratchAndWin-own-target-headers.hmap -I/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/ScratchAndWin-all-target-headers.hmap -iquote /Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/ScratchAndWin-project-headers.hmap -F/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator -I/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/include -I/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/DerivedSources/i386 -I/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/DerivedSources -include /var/folders/6I/6Iw9DRqNGhuXiZtlUy6NMU+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/ScratchAndWin_Prefix-dusaunvjnpxurefonxljdxbqapvl/ScratchAndWin_Prefix.pch -c /Users/rob/Downloads/ScratchAndWin-2/Classes/ScratchableView.m -o /Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/ScratchableView.o0#
+
+CCompileC build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/main.o /Users/rob/Downloads/ScratchAndWin-2/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s317890576.008647
+e317890576.097394
+r1
+xCompileC
+xbuild/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/main.o
+x/Users/rob/Downloads/ScratchAndWin-2/main.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@51"Compile /Users/rob/Downloads/ScratchAndWin-2/main.m317890576#317890576#0(0"0(0#0#43"/Users/rob/Downloads/ScratchAndWin-2/main.m8608914048#2012"    cd /Users/rob/Downloads/ScratchAndWin-2    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/ScratchAndWin-generated-files.hmap -I/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/ScratchAndWin-own-target-headers.hmap -I/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/ScratchAndWin-all-target-headers.hmap -iquote /Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/ScratchAndWin-project-headers.hmap -F/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator -I/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/include -I/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/DerivedSources/i386 -I/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/DerivedSources -include /var/folders/6I/6Iw9DRqNGhuXiZtlUy6NMU+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/ScratchAndWin_Prefix-dusaunvjnpxurefonxljdxbqapvl/ScratchAndWin_Prefix.pch -c /Users/rob/Downloads/ScratchAndWin-2/main.m -o /Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/main.o0#
+
+CCompileXIB /Users/rob/Downloads/ScratchAndWin-2/CGScratchViewController.xib
+s317890573.407222
+e317890574.428562
+r1
+xCompileXIB
+x/Users/rob/Downloads/ScratchAndWin-2/CGScratchViewController.xib
+lSLF07#2@38"CompileXIB CGScratchViewController.xib317890573#317890574#0(0"0(0#0#64"/Users/rob/Downloads/ScratchAndWin-2/CGScratchViewController.xib8603141536#596"    cd /Users/rob/Downloads/ScratchAndWin-2    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app/CGScratchViewController.nib /Users/rob/Downloads/ScratchAndWin-2/CGScratchViewController.xib --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk0#
+
+CCompileXIB /Users/rob/Downloads/ScratchAndWin-2/MainWindow.xib
+s317890573.406057
+e317890574.605529
+r1
+xCompileXIB
+x/Users/rob/Downloads/ScratchAndWin-2/MainWindow.xib
+lSLF07#2@25"CompileXIB MainWindow.xib317890573#317890574#0(0"0(0#0#51"/Users/rob/Downloads/ScratchAndWin-2/MainWindow.xib8603291168#570"    cd /Users/rob/Downloads/ScratchAndWin-2    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app/MainWindow.nib /Users/rob/Downloads/ScratchAndWin-2/MainWindow.xib --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk0#
+
+CCpResource build/Debug-iphonesimulator/ScratchAndWin.app/background.jpg background.jpg
+s317890574.430689
+e317890574.450907
+r1
+xCpResource
+xbuild/Debug-iphonesimulator/ScratchAndWin.app/background.jpg
+xbackground.jpg
+lSLF07#2@19"Copy background.jpg317890574#317890574#0(0"0(0#0#51"/Users/rob/Downloads/ScratchAndWin-2/background.jpg8617064480#472"    cd /Users/rob/Downloads/ScratchAndWin-2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/rob/Downloads/ScratchAndWin-2/background.jpg /Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app0#
+
+CCpResource build/Debug-iphonesimulator/ScratchAndWin.app/scratchable.jpg scratchable.jpg
+s317890574.428663
+e317890574.450752
+r1
+xCpResource
+xbuild/Debug-iphonesimulator/ScratchAndWin.app/scratchable.jpg
+xscratchable.jpg
+lSLF07#2@20"Copy scratchable.jpg317890574#317890574#0(0"0(0#0#52"/Users/rob/Downloads/ScratchAndWin-2/scratchable.jpg8608625248#473"    cd /Users/rob/Downloads/ScratchAndWin-2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/rob/Downloads/ScratchAndWin-2/scratchable.jpg /Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app0#
+
+CGenerateDSYMFile /Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app.dSYM /Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app/ScratchAndWin
+s317890576.507412
+e317890576.561218
+r1
+xGenerateDSYMFile
+x/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app.dSYM
+x/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app/ScratchAndWin
+lSLF07#2@127"GenerateDSYMFile build/Debug-iphonesimulator/ScratchAndWin.app.dSYM build/Debug-iphonesimulator/ScratchAndWin.app/ScratchAndWin317890576#317890576#0(0"0(0#0#96"/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app/ScratchAndWin8608109664#395"    cd /Users/rob/Downloads/ScratchAndWin-2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil /Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app/ScratchAndWin -o /Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app.dSYM0#
+
+CLd /Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app/ScratchAndWin normal i386
+s317890576.450449
+e317890576.507301
+r1
+xLd
+x/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app/ScratchAndWin
+xnormal
+xi386
+lSLF07#2@101"Link /Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app/ScratchAndWin317890576#317890576#0(0"0(0#0#0"8609572384#920"    cd /Users/rob/Downloads/ScratchAndWin-2    setenv MACOSX_DEPLOYMENT_TARGET 10.6    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -L/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator -F/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator -filelist /Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/Objects-normal/i386/ScratchAndWin.LinkFileList -mmacosx-version-min=10.6 -Xlinker -objc_abi_version -Xlinker 2 -framework Foundation -framework UIKit -framework CoreGraphics -o /Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app/ScratchAndWin0#
+
+CProcessInfoPlistFile /Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app/Info.plist ScratchAndWin-Info.plist
+s317890573.392842
+e317890573.405964
+r1
+xProcessInfoPlistFile
+x/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app/Info.plist
+xScratchAndWin-Info.plist
+lSLF07#2@32"Process ScratchAndWin-Info.plist317890573#317890573#0(0"0(0#0#61"/Users/rob/Downloads/ScratchAndWin-2/ScratchAndWin-Info.plist8603956768#491"    cd /Users/rob/Downloads/ScratchAndWin-2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility ScratchAndWin-Info.plist -genpkginfo /Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app/Info.plist0#
+
+CProcessPCH /var/folders/6I/6Iw9DRqNGhuXiZtlUy6NMU+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/ScratchAndWin_Prefix-dusaunvjnpxurefonxljdxbqapvl/ScratchAndWin_Prefix.pch.gch ScratchAndWin_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+s317890574.605655
+e317890576.008328
+r1
+xProcessPCH
+x/var/folders/6I/6Iw9DRqNGhuXiZtlUy6NMU+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/ScratchAndWin_Prefix-dusaunvjnpxurefonxljdxbqapvl/ScratchAndWin_Prefix.pch.gch
+xScratchAndWin_Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@35"Precompile ScratchAndWin_Prefix.pch317890574#317890576#0(0"0(0#0#61"/Users/rob/Downloads/ScratchAndWin-2/ScratchAndWin_Prefix.pch8617190464#1900"    cd /Users/rob/Downloads/ScratchAndWin-2    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/ScratchAndWin-generated-files.hmap -I/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/ScratchAndWin-own-target-headers.hmap -I/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/ScratchAndWin-all-target-headers.hmap -iquote /Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/ScratchAndWin-project-headers.hmap -F/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator -I/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/include -I/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/DerivedSources/i386 -I/Users/rob/Downloads/ScratchAndWin-2/build/ScratchAndWin.build/Debug-iphonesimulator/ScratchAndWin.build/DerivedSources -c /Users/rob/Downloads/ScratchAndWin-2/ScratchAndWin_Prefix.pch -o /var/folders/6I/6Iw9DRqNGhuXiZtlUy6NMU+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/ScratchAndWin_Prefix-dusaunvjnpxurefonxljdxbqapvl/ScratchAndWin_Prefix.pch.gch0#
+
+CTouch /Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app
+s317890576.561368
+e317890576.564791
+r1
+xTouch
+x/Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app
+lSLF07#2@88"Touch /Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app317890576#317890576#0(0"0(0#0#0"8606501216#280"    cd /Users/rob/Downloads/ScratchAndWin-2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/rob/Downloads/ScratchAndWin-2/build/Debug-iphonesimulator/ScratchAndWin.app0#
+

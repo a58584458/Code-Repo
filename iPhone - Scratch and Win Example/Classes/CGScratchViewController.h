@@ -1,0 +1,17 @@
+//
+//  CGScratchViewController.h
+//  CGScratch
+//
+//  Created by Olivier Yiptong on 11-01-11.
+//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface CGScratchViewController : UIViewController {
+
+}
+-(void) myResetAction:(id)sender;
+
+@end
+
