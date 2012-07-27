@@ -1,0 +1,1 @@
+cvlc --intf=rc http://10.10.10.99:8080/cam_1.cgi --sout '#transcode{fps=25,vcodec=h264,venc=x264{aud,profile=baseline,level=30,keyint=30,bframes=0,ref=1,nocabac},acodec=mp3,ab=56,audio-sync,deinterlace}:standard{mux=ts,access=http,dst=10.10.10.69:8090/test.mp4}'
