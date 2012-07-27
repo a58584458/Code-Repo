@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 1995, 2008, Oracle and/or its affiliates. All rights reserved.
  *
@@ -28,22 +27,22 @@
  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
- 
+ */ 
+
 /*
  * CelsiusConverterGUI.java
  *
  */
- 
-//package learn;
- 
+
+package learn;
+
 public class CelsiusConverterGUI extends javax.swing.JFrame {
-     
+    
     /** Creates new form CelsiusConverterGUI */
     public CelsiusConverterGUI() {
         initComponents();
     }
-     
+    
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -55,21 +54,21 @@ public class CelsiusConverterGUI extends javax.swing.JFrame {
         celsiusLabel = new javax.swing.JLabel();
         convertButton = new javax.swing.JButton();
         fahrenheitLabel = new javax.swing.JLabel();
- 
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Celsius Converter");
- 
+
         celsiusLabel.setText("Celsius");
- 
+
         convertButton.setText("Convert");
         convertButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 convertButtonActionPerformed(evt);
             }
         });
- 
+
         fahrenheitLabel.setText("Fahrenheit");
- 
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -87,9 +86,9 @@ public class CelsiusConverterGUI extends javax.swing.JFrame {
                         .addComponent(fahrenheitLabel)))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
- 
+
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {convertButton, tempTextField});
- 
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -105,14 +104,14 @@ public class CelsiusConverterGUI extends javax.swing.JFrame {
         );
         pack();
     }// </editor-fold>//GEN-END:initComponents
- 
+
     private void convertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_convertButtonActionPerformed
 //Parse degrees Celsius as a double and convert to Fahrenheit
         int tempFahr = (int)((Double.parseDouble(tempTextField.getText()))
             * 1.8 + 32);
         fahrenheitLabel.setText(tempFahr + " Fahrenheit");
     }//GEN-LAST:event_convertButtonActionPerformed
-     
+    
     /**
      * @param args the command line arguments
      */
@@ -123,12 +122,12 @@ public class CelsiusConverterGUI extends javax.swing.JFrame {
             }
         });
     }
-     
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel celsiusLabel;
     private javax.swing.JButton convertButton;
     private javax.swing.JLabel fahrenheitLabel;
     private javax.swing.JTextField tempTextField;
     // End of variables declaration//GEN-END:variables
-     
+    
 }
