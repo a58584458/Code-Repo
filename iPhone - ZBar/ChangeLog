@@ -1,190 +1,115 @@
-version 2.1:
-  * bump version (only)
+version 1.1.3:
+  * fix UITabViewController rotation interaction
 
-version 2.0:
-  * fix dialog dismissal bug
-  * fixes from leak hunt
-    - show books as such
-  * reduce scan delegate latency
-  * fix reader rotation bugs
-    - add tweet link
-  * remove broken upcdb scraping (deprecated interface)
-  * reverse barcode list order (most recent at top)
-    - fix name search key consistency
-    - always add info "barcodes" during upgrade
-    - add info barcode link to user guide
-  * GTIN handling fixes
-    - fix GTIN-12 extraction
-    - fix DataBar AI 01 classification
-    - fix GTIN-14 remove indicator digit and recalc check
-  * fix bugs with empty link names and templates
-  * remove references to addons
-  * add user guide
-  * workaround default Action migration issues
-  * disable CSV attachment for single Barcode email
-  * add more default actions
-    - ISBN links
-    - generate QR Code
-  * add default/sample barcode on DB init
-  * hide toolbars in edit mode
-  * fix text edit/view selection and validation
-  * fix Folder name editing bugs
-    - fix Folder name not saved on creation
-    - use save/cancel for Folder name edits
-    - in-memory store fallback and default Folder
-    - select all text before edit
-    - fix text edit validation (NB still one template corner-case)
-    - add completion block support for settings infrastructure
-  * add function to move Barcode into another Folder
-    - new controller to select Folder
-    - move scan from photo under separate add action
-  * fix navigation view stack manipulation to include Folders
-    - ensure current Folder is included after scanning
-    - fallback restore to default Folder on app start
-  * add scan into current Folder
-    - fix thumb icon stale observation bug
-  * add Folder properties editing
-  * finish add new Folder
-    - fix deletion re-indexing
-  * add Folders list view
-    - change Barcode list specific to Folder
-    - move Settings to Folder list
-    - factor out tinted bar button
-  * add Folders to database
-    - add default Unfiled folder during migration/creation
-  * use system modal for mail composer
-    - ad modal problems w/nested contact mode
-  * fix/enhance email export
-    - add setting to select CSV function argument delimeter
-    - fix enum cells to use any value type
-  * add external disclosure accessory for link cells
-  * add name replacement
-    - fix name scraping to use new Classification data
-    - fix scrapers to only scrape once
-    - fix URL escapes
-  * add template editor substitution list
-  * implement setting to automatically open links on scan
-    - fix Settings save bug (introduced during Action migration)
-    - tweak text editing keyboards
-  * change clear button color to red
-    - fix half functional clear sheet cancel button
-  * remove deprecated link cells
-  * merge text view/edit controllers
-    - fix bug in URL template editor selection manipulation
-    - fix new Action add bug
-  * migrate Actions to settings
-    - rewrite Action system
-    - migrate Actions from db to settings
-    - change Actions to use link templates
-    - add support for Action subtypes and email actions
-    - remove saved Classification data
-    - change Classifiers to support hierarchical classifications
-    - use/enhance Settings infrastructure to edit Actions
-    - fix database migration to SQLite
-    - require iOS 4.2 for better iAd support
-  * tune reader based on enabled symbologies
-    - workaround rotation issue w/controller nested in custom container
-  * migrate persistent storage to SQLite format
-  * add define to disable iAd
-    - add ad-modal fallback to system modal
-    - fix resulting reader layout misbehavior
-    - fix project rsrc/ relative paths
-  * crop thumb to symbol and rotate upright
-    - fix reader crop reset
-  * Add setting menu
-    - add support basic app settings (scraping, audio beep, etc)
-    - add support to enable/disable symbologies
-  * stop reader during ad
-  * customize barcode reader
-    - tune reader/view for long linear symbols in landscape orientation
-    - fix overlay view layout
-    - fix some animation inconsistencies
-  * add ad-aware modal interface
-  * fix reader overlay layout and tip presentation
-  * add basic iAd support
-  * remove unused EntityFactory files and references
-  * initial migration to xcode data model
-  * add copy support to BarcodeDetail data cell
-  * fix Reader overlay pinch zoom function
-    - optimize icon size for low res screens
-  * enhance BarcodeDetailView layout
-    - fix simulator camera unavailable
-    - fix empty action list
-    - fix URL parsing
-  * fix broken cancel button in integrated web browser
-  * simplify integrated web browser history
-  * enhance Reader delegate to minimize scan latency
-  * fix scanning from images to use the old ReaderController
-    - fix minor memory leak in restoreState
-  * add link to ZBar SDK, update iPhone SDK
-  * update graphics for higher resolution
-  * use less annoying sound for scan confirmation
-    - switch to AVAudioPlayer instead of system sound for session integration
-      and better control
-  * update app startup/background for iOS 4
-  * switch to ZBarSDK and new ZBarReaderViewController
-    - update to iOS SDK 4.1
-    - fix a few warnings/bugs
-  * add integrated browser
-    - add draft network availability infra
-    - add network unavailable page
-    - rework UI state save/restore
-    - move classification to Barcode
-  * email enhancements
-    - factor out email infrastructure
-    - use proper HTML generator (fixes body escapes)
-    - add support for CSV attachments
-  * add popup help tip when no barcode is detected
-  * add custom reader overlay
-  * migrate to new web help
-  * apply Apache license, v2.0
+version 1.1.2:
+  * add maxZoom for increasing zoom range
+    - workaround camera preview initial location/size bug
+  * add emulation for UI videoQuality to adjust camera resolution
+  * fix several simulator-related bugs
+    - fix device property missing from simulated ZBarReaderView
+    - fix AVCaptureDevice referenced from ZBarReaderViewController
+    - fix simulated camera gesture multiple recognition
+
+version 1.1.1:
+  * fix ReaderSample project path to ZBarSDK
+  * README document new examples
+    - make ReaderSample scheme public
+  * documentation updates
+  * add emulation for UI camera device and flash mode properties
+  * workaround orientation bugs in parent controllers
+    - enable orientation and iPad support for all examples
+  * add orientation detection fall back
+  * fix captureReader not exposed to simulator
+  * fix camera preview stale rotation corner
+    - fix ZBarReaderViewController toolbar layout accomodation
+    - switch pre-release samples to use debug library
+  * update docs to note possible link order dependency
+  * add missing references to new samples
+  * add IB support to ZBarReaderViewController
+    - add tabbed reader sample
+  * add embedded reader sample
+    - factor out camera simulation logic
+  * fix readertest max quality result filtering
+    - thanks to John Boydon for finding this!
+  * improve support for resizing, rotating and embedding the reader
+  * add readertest fixed zoom stops
+  * add manual frame capture
+    - readertest save as PNG
+  * enhance readertest to support default/demo pre-config and distribution
+  * updates for Xcode 4
+  * expose tracking box color
+
+version 1.1:
+  * fix doc typo (bug #3139087)
+    - add modifier bit docs
+
+version 1.0.1:
+  * hotfix broken ZBarHelpController back button
+  * release updates
+    - update docs
+  * fix support for GS1 AIs
+  * fix simulated camera image orientation/scaling
+  * cleanup and expose ZBarHelpController
+  * expose enable for reader capture processing
+  * workaround iOS 4.2 hang
+    - update to use latest SDK
+  * add support for Code 93 symbology
 
 version 1.0:
-  * add custom icon for scanning from photo library
+  * update to SDK 4.1, clean out LLVM warnings
+  * fix camera simulation gesture
 
 version 0.1.2:
-  * default new searches to apply for all raw formats
-    - remove classification references to I25
+  * fix missing header dependency
+  * doc enhancements
+  * force controls to front when showsZBarControls is enabled
+  * fix initial zoom crop (performance bug)
+  * workaround iPhone quartz access past image data
 
 version 0.1.1:
-  * add beep on successful scan
-    - tweak processing delays to avoid sound stutters
-  * add support for sending list/item in an email 
-    - apply classification naming
-    - name packages during classification
-  * add scraping infrastructure
-    - initial name scrapers for upcdb and web page titles
-    - catch exceptions from save operations
-  * add shipping classifications for some UPS and FedEx tracking numbers
-    - disable I25 for some performance improvement
-  * add barcode classification engine (NB schema change!)
-    - add simple wrapper for uregex (no headers?!)
-    - fix UPC-E handling (et al)
-    - cleanup and enhance object model factory to support relationships
-    - add classifications to object model
-    - add predefined actions for email and url
-    - rewrite barcode detail controller to use data array
-      (predicates don't support intersection of classification sets)
-    - detail links filtered by classifications
-  * enhance location save/restore
-    - save/restore barcode list position
-    - barcode list select/scroll to selected entry (on restore and insert)
-  * add rotation support
-  * cleanup barcode detail view
-    - modeled after contacts app
-    - move type and date out of header into data section
-    - separate builtin action and link sections
-    - improve date formatting
-    - add text view for full barcode data
-    - change link detail to generic text field table, reuse for title edits
-    - move validation to core data, use to enable "save"
-    - move back to 3.1 (3.0 table cells broken)
-  * change Product to generic Barcode, Searcher to Action (NB schema change!)
-  * text field and URL handling improvements
-    - detect and report URL/link related errors
-    - add editing for barcode "name"
-    - improve text field/keyboard handling
-    - simplify searcher detail table interface
+  * migrate to binary iPhone SDK distribution (NB backward incompatibilities!)
+    - restructure headers
 
-version 0.1.0:
-  * initial beta release
+version 0.1:
+  * workaround for iPhone simulator builds
+    - refactor ZBarReaderView for capture/simulator specific implementations
+    - fix tracking calculations
+    - fix captured video frame color conversion
+  * fix for poor iPhone 4 performance
+  * enable torch for iPhone 4
+  * fix iPhone circular ref bug
+  * add iPhone cache flush, change new libs to weak refs
+  * fix iPhone async ref bug
+  * enhance iPhone readertest w/more options
+  * add iPhone zoom support, integrate with crop
+  * add iPhone OS 4.0 video capture support
+    - replacement view controller for new camera reader
+    - separate view for use without controller
+    - separate capture delegate for use standalone
+    - add continuous autofocus
+  * cleanup and expose iphone help display API
+  * fixes to new iphone help display
+  * migrate iphone help display to integrated web page (NB resource updates!)
+    - allows easier customization
+    - local links open directly, external links confirm and jump out to Safari
+    - JavaScript hook for help context customization
+    - also enhanced default help (note this changes the required resources)
+    - fix to disable scanning during help overlay
+    - thanks to iafanasyev and others for detailed suggestions
+  * fix iphone custom overlay response (bug #2959617)
+    - thanks to an anonymous user for the patch!
+  * iphone widget performance tuning enhancements
+    - fix crop calculation bug in ZBarImage
+    - add properties to control pre-scan image cropping and scaling
+    - add property for scanner cache control
+    - enable some scanner density control (FIXME should be property)
+    - fix ifdef for quality control (FIXME should be property)
+    - add "sequence" mode test (not actually so useful)
+  * realtime scanning for iphone widget
+    - uses UIGetScreenImage() (NB private)
+    - ZBarImage from CGImage (instead of UIImage)
+    - add crop to scaling step
+    - expose symbol set unfiltered results
+  * iphone widget back compat updates, add basic test app
+  * add Obj-C wrapper
+  * first pass working iPhone "widget"
