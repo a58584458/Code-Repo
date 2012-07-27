@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2009/11/06 09:51:45.562.bdsproj,C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Project1.bdsproj=C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\KeyManagement.bdsproj</Transaction>
+    <Transaction>2009/11/06 09:51:52.468.pas,C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Unit1.pas=C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\KeyManage.pas</Transaction>
+    <Transaction>2009/11/06 09:51:52.468.dfm,C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Unit1.dfm=C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\KeyManage.dfm</Transaction>
+    <Transaction>2009/11/06 10:26:48.375.pas,C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Unit1.pas=C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\MifareInit.pas</Transaction>
+    <Transaction>2009/11/06 10:26:48.375.dfm,C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Unit1.dfm=C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\MifareInit.dfm</Transaction>
+    <Transaction>2009/11/06 10:26:53.109.pas,C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Unit2.pas=C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\SamInit.pas</Transaction>
+    <Transaction>2009/11/06 10:26:53.109.dfm,C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Unit2.dfm=C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\SamInit.dfm</Transaction>
+    <Transaction>2009/11/06 17:55:14.513.bdsproj,C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\KeyManagement.bdsproj=C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\KeyManagement.bdsproj</Transaction>
+  </Transactions>
+</BorlandProject>

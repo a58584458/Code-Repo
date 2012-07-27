@@ -1,0 +1,13 @@
+program PICCCardPolling;
+
+uses
+  Forms,
+  Polling in 'Polling.pas' {CardPolling};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TCardPolling, CardPolling);
+  Application.Run;
+end.

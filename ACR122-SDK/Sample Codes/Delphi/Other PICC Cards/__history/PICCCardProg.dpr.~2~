@@ -1,0 +1,14 @@
+program PICCCardProg;
+
+uses
+  Forms,
+  PICCProg in 'PICCProg.pas' {MainPICCProg},
+  ACR122s in 'ACR122s.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TMainPICCProg, MainPICCProg);
+  Application.Run;
+end.

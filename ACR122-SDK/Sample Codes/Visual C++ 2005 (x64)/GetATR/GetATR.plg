@@ -1,0 +1,40 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: GetATR - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/GetATR.res" /d "_DEBUG" /d "_AFXDLL" "H:\Programs\ACR122S\Sample Codes\Visual C++ 6.0\GetATR\GetATR.rc"" 
+Creating temporary file "C:\DOCUME~1\Wazer\LOCALS~1\Temp\RSP130.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/GetATR.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"H:\Programs\ACR122S\Sample Codes\Visual C++ 6.0\GetATR\GetATR.cpp"
+"H:\Programs\ACR122S\Sample Codes\Visual C++ 6.0\GetATR\GetATRDlg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Wazer\LOCALS~1\Temp\RSP130.tmp" 
+Creating temporary file "C:\DOCUME~1\Wazer\LOCALS~1\Temp\RSP131.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/GetATR.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"H:\Programs\ACR122S\Sample Codes\Visual C++ 6.0\GetATR\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Wazer\LOCALS~1\Temp\RSP131.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:yes /pdb:"Debug/GetATR.pdb" /debug /machine:I386 /out:"Debug/GetATR.exe" /pdbtype:sept  ".\Debug\GetATR.obj" ".\Debug\GetATRDlg.obj" ".\Debug\StdAfx.obj" ".\Debug\GetATR.res" ".\acr122.lib" "
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+GetATR.cpp
+GetATRDlg.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+GetATR.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

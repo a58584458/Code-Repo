@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2009/10/13 13:48:09.968.pas,C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Unit1.pas=C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\ATR.pas</Transaction>
+    <Transaction>2009/10/13 13:48:09.968.dfm,C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Unit1.dfm=C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\ATR.dfm</Transaction>
+    <Transaction>2009/10/13 17:58:51.421.bdsproj,C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Project1.bdsproj=C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Project1.bdsproj</Transaction>
+    <Transaction>2009/10/15 12:07:41.765.bdsproj,E:\Projects\ACR122s\Delphi\GetATR\Project1.bdsproj=E:\Projects\ACR122s\Delphi\GetATR\GetATR.bdsproj</Transaction>
+  </Transactions>
+</BorlandProject>

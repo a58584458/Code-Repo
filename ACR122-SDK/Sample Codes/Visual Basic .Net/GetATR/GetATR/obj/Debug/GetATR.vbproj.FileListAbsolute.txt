@@ -1,0 +1,10 @@
+C:\Documents and Settings\Alain\My Documents\Visual Studio 2008\Projects\GetATR\GetATR\bin\Debug\GetATR.exe
+C:\Documents and Settings\Alain\My Documents\Visual Studio 2008\Projects\GetATR\GetATR\bin\Debug\GetATR.pdb
+C:\Documents and Settings\Alain\My Documents\Visual Studio 2008\Projects\GetATR\GetATR\bin\Debug\GetATR.xml
+C:\Documents and Settings\Alain\My Documents\Visual Studio 2008\Projects\GetATR\GetATR\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Alain\My Documents\Visual Studio 2008\Projects\GetATR\GetATR\obj\Debug\WindowsApplication1.Resources.resources
+C:\Documents and Settings\Alain\My Documents\Visual Studio 2008\Projects\GetATR\GetATR\obj\Debug\GetATR.vbproj.GenerateResource.Cache
+C:\Documents and Settings\Alain\My Documents\Visual Studio 2008\Projects\GetATR\GetATR\obj\Debug\GetATR.exe
+C:\Documents and Settings\Alain\My Documents\Visual Studio 2008\Projects\GetATR\GetATR\obj\Debug\GetATR.xml
+C:\Documents and Settings\Alain\My Documents\Visual Studio 2008\Projects\GetATR\GetATR\obj\Debug\GetATR.pdb
+C:\Documents and Settings\Alain\My Documents\Visual Studio 2008\Projects\GetATR\GetATR\obj\Debug\WindowsApplication1.getatr.resources

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2009/10/22 10:48:42.609.bdsproj,C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Project1.bdsproj=C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\PICCCardPolling.bdsproj</Transaction>
+    <Transaction>2009/10/22 10:48:46.468.pas,C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Unit1.pas=C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Polling.pas</Transaction>
+    <Transaction>2009/10/22 10:48:46.468.dfm,C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Unit1.dfm=C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Polling.dfm</Transaction>
+    <Transaction>2009/10/22 10:49:39.093.pas,C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Polling.pas=C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Polling\Polling.pas</Transaction>
+    <Transaction>2009/10/22 10:49:39.093.dfm,C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Polling.dfm=C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Polling\Polling.dfm</Transaction>
+    <Transaction>2009/10/22 10:49:42.109.bdsproj,C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\PICCCardPolling.bdsproj=C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Polling\PICCCardPolling.bdsproj</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,373 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* iNfraredAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* iNfraredAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
+		28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD73870D9D96C1002E5188 /* MainWindow.xib */; };
+		5E28D1990F007F3900BBEAED /* RawPulseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E28D1980F007F3900BBEAED /* RawPulseLogger.m */; };
+		5E6F41390EE222080037EA7A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E6F41370EE222080037EA7A /* AudioToolbox.framework */; };
+		5E6F413A0EE222080037EA7A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E6F41380EE222080037EA7A /* MediaPlayer.framework */; };
+		5E6F42720EE23BA90037EA7A /* RemoteEventsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6F42710EE23BA90037EA7A /* RemoteEventsManager.m */; };
+		5E7342600EE0C0BD00B78878 /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E73425F0EE0C0BD00B78878 /* LogViewController.m */; };
+		5E7342840EE0DDE800B78878 /* AudioQueueObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7342830EE0DDE800B78878 /* AudioQueueObject.m */; };
+		5E7342930EE0E20100B78878 /* AudioSignalAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7342920EE0E20100B78878 /* AudioSignalAnalyzer.m */; };
+		5E7342980EE0EB0D00B78878 /* PulseCodeRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7342970EE0EB0D00B78878 /* PulseCodeRecognizer.m */; };
+		5E73429D0EE0F23D00B78878 /* AppleRemoteRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E73429C0EE0F23D00B78878 /* AppleRemoteRecognizer.m */; };
+		5EA283660F2589A00051E444 /* MultiDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA283650F2589A00051E444 /* MultiDelegate.m */; };
+		5EDFA4940F1AB1180010E8F5 /* AppleRemoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDFA4930F1AB1180010E8F5 /* AppleRemoteViewController.m */; };
+		5EDFA49E0F1AB2300010E8F5 /* HighlightDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDFA4970F1AB2300010E8F5 /* HighlightDown.png */; };
+		5EDFA49F0F1AB2300010E8F5 /* HighlightHome.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDFA4980F1AB2300010E8F5 /* HighlightHome.png */; };
+		5EDFA4A00F1AB2300010E8F5 /* HighlightLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDFA4990F1AB2300010E8F5 /* HighlightLeft.png */; };
+		5EDFA4A10F1AB2300010E8F5 /* HighlightMiddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDFA49A0F1AB2300010E8F5 /* HighlightMiddle.png */; };
+		5EDFA4A20F1AB2300010E8F5 /* HighlightRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDFA49B0F1AB2300010E8F5 /* HighlightRight.png */; };
+		5EDFA4A30F1AB2300010E8F5 /* HighlightUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDFA49C0F1AB2300010E8F5 /* HighlightUp.png */; };
+		5EDFA4A40F1AB2300010E8F5 /* RemoteBase.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDFA49D0F1AB2300010E8F5 /* RemoteBase.png */; };
+		5EFE907C0F1AA820003C04F2 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EFE907B0F1AA820003C04F2 /* Entitlements.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* iNfraredAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iNfraredAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* iNfraredAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iNfraredAppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* iNfrared.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iNfrared.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		288765070DF74369002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28A0AB4B0D9B1048005BE974 /* iNfrared_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iNfrared_Prefix.pch; sourceTree = "<group>"; };
+		28AD73870D9D96C1002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5E28D18C0EFF9E8700BBEAED /* PatternRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatternRecognizer.h; sourceTree = "<group>"; };
+		5E28D1970F007F3900BBEAED /* RawPulseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RawPulseLogger.h; sourceTree = "<group>"; };
+		5E28D1980F007F3900BBEAED /* RawPulseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RawPulseLogger.m; sourceTree = "<group>"; };
+		5E6F41370EE222080037EA7A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		5E6F41380EE222080037EA7A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		5E6F42700EE23BA90037EA7A /* RemoteEventsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteEventsManager.h; sourceTree = "<group>"; };
+		5E6F42710EE23BA90037EA7A /* RemoteEventsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteEventsManager.m; sourceTree = "<group>"; };
+		5E73425E0EE0C0BD00B78878 /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
+		5E73425F0EE0C0BD00B78878 /* LogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogViewController.m; sourceTree = "<group>"; };
+		5E7342820EE0DDE800B78878 /* AudioQueueObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioQueueObject.h; sourceTree = "<group>"; };
+		5E7342830EE0DDE800B78878 /* AudioQueueObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioQueueObject.m; sourceTree = "<group>"; };
+		5E7342910EE0E20100B78878 /* AudioSignalAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioSignalAnalyzer.h; sourceTree = "<group>"; };
+		5E7342920EE0E20100B78878 /* AudioSignalAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioSignalAnalyzer.m; sourceTree = "<group>"; };
+		5E7342960EE0EB0D00B78878 /* PulseCodeRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulseCodeRecognizer.h; sourceTree = "<group>"; };
+		5E7342970EE0EB0D00B78878 /* PulseCodeRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PulseCodeRecognizer.m; sourceTree = "<group>"; };
+		5E73429B0EE0F23D00B78878 /* AppleRemoteRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleRemoteRecognizer.h; sourceTree = "<group>"; };
+		5E73429C0EE0F23D00B78878 /* AppleRemoteRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppleRemoteRecognizer.m; sourceTree = "<group>"; };
+		5EA283640F2589A00051E444 /* MultiDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiDelegate.h; sourceTree = "<group>"; };
+		5EA283650F2589A00051E444 /* MultiDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiDelegate.m; sourceTree = "<group>"; };
+		5EDFA4920F1AB1180010E8F5 /* AppleRemoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleRemoteViewController.h; sourceTree = "<group>"; };
+		5EDFA4930F1AB1180010E8F5 /* AppleRemoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppleRemoteViewController.m; sourceTree = "<group>"; };
+		5EDFA4970F1AB2300010E8F5 /* HighlightDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HighlightDown.png; sourceTree = "<group>"; };
+		5EDFA4980F1AB2300010E8F5 /* HighlightHome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HighlightHome.png; sourceTree = "<group>"; };
+		5EDFA4990F1AB2300010E8F5 /* HighlightLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HighlightLeft.png; sourceTree = "<group>"; };
+		5EDFA49A0F1AB2300010E8F5 /* HighlightMiddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HighlightMiddle.png; sourceTree = "<group>"; };
+		5EDFA49B0F1AB2300010E8F5 /* HighlightRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HighlightRight.png; sourceTree = "<group>"; };
+		5EDFA49C0F1AB2300010E8F5 /* HighlightUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HighlightUp.png; sourceTree = "<group>"; };
+		5EDFA49D0F1AB2300010E8F5 /* RemoteBase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RemoteBase.png; sourceTree = "<group>"; };
+		5EFE907B0F1AA820003C04F2 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */,
+				5E6F41390EE222080037EA7A /* AudioToolbox.framework in Frameworks */,
+				5E6F413A0EE222080037EA7A /* MediaPlayer.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1D3623240D0F684500981E51 /* iNfraredAppDelegate.h */,
+				1D3623250D0F684500981E51 /* iNfraredAppDelegate.m */,
+				5E73425E0EE0C0BD00B78878 /* LogViewController.h */,
+				5E73425F0EE0C0BD00B78878 /* LogViewController.m */,
+				5E7342820EE0DDE800B78878 /* AudioQueueObject.h */,
+				5E7342830EE0DDE800B78878 /* AudioQueueObject.m */,
+				5E7342910EE0E20100B78878 /* AudioSignalAnalyzer.h */,
+				5E7342920EE0E20100B78878 /* AudioSignalAnalyzer.m */,
+				5E7342960EE0EB0D00B78878 /* PulseCodeRecognizer.h */,
+				5E7342970EE0EB0D00B78878 /* PulseCodeRecognizer.m */,
+				5E73429B0EE0F23D00B78878 /* AppleRemoteRecognizer.h */,
+				5E73429C0EE0F23D00B78878 /* AppleRemoteRecognizer.m */,
+				5E6F42700EE23BA90037EA7A /* RemoteEventsManager.h */,
+				5E6F42710EE23BA90037EA7A /* RemoteEventsManager.m */,
+				5E28D18C0EFF9E8700BBEAED /* PatternRecognizer.h */,
+				5E28D1970F007F3900BBEAED /* RawPulseLogger.h */,
+				5E28D1980F007F3900BBEAED /* RawPulseLogger.m */,
+				5EDFA4920F1AB1180010E8F5 /* AppleRemoteViewController.h */,
+				5EDFA4930F1AB1180010E8F5 /* AppleRemoteViewController.m */,
+				5EA283640F2589A00051E444 /* MultiDelegate.h */,
+				5EA283650F2589A00051E444 /* MultiDelegate.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* iNfrared.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* iNfrared */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+				5EFE907B0F1AA820003C04F2 /* Entitlements.plist */,
+			);
+			name = iNfrared;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				28A0AB4B0D9B1048005BE974 /* iNfrared_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5EDFA4960F1AB2300010E8F5 /* MacRemote */,
+				28AD73870D9D96C1002E5188 /* MainWindow.xib */,
+				8D1107310486CEB800E47090 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E6F41380EE222080037EA7A /* MediaPlayer.framework */,
+				5E6F41370EE222080037EA7A /* AudioToolbox.framework */,
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				288765070DF74369002DB57D /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5EDFA4960F1AB2300010E8F5 /* MacRemote */ = {
+			isa = PBXGroup;
+			children = (
+				5EDFA4970F1AB2300010E8F5 /* HighlightDown.png */,
+				5EDFA4980F1AB2300010E8F5 /* HighlightHome.png */,
+				5EDFA4990F1AB2300010E8F5 /* HighlightLeft.png */,
+				5EDFA49A0F1AB2300010E8F5 /* HighlightMiddle.png */,
+				5EDFA49B0F1AB2300010E8F5 /* HighlightRight.png */,
+				5EDFA49C0F1AB2300010E8F5 /* HighlightUp.png */,
+				5EDFA49D0F1AB2300010E8F5 /* RemoteBase.png */,
+			);
+			path = MacRemote;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* iNfrared */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "iNfrared" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iNfrared;
+			productName = iNfrared;
+			productReference = 1D6058910D05DD3D006BFB54 /* iNfrared.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "iNfrared" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* iNfrared */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* iNfrared */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */,
+				5EFE907C0F1AA820003C04F2 /* Entitlements.plist in Resources */,
+				5EDFA49E0F1AB2300010E8F5 /* HighlightDown.png in Resources */,
+				5EDFA49F0F1AB2300010E8F5 /* HighlightHome.png in Resources */,
+				5EDFA4A00F1AB2300010E8F5 /* HighlightLeft.png in Resources */,
+				5EDFA4A10F1AB2300010E8F5 /* HighlightMiddle.png in Resources */,
+				5EDFA4A20F1AB2300010E8F5 /* HighlightRight.png in Resources */,
+				5EDFA4A30F1AB2300010E8F5 /* HighlightUp.png in Resources */,
+				5EDFA4A40F1AB2300010E8F5 /* RemoteBase.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* iNfraredAppDelegate.m in Sources */,
+				5E7342600EE0C0BD00B78878 /* LogViewController.m in Sources */,
+				5E7342840EE0DDE800B78878 /* AudioQueueObject.m in Sources */,
+				5E7342930EE0E20100B78878 /* AudioSignalAnalyzer.m in Sources */,
+				5E7342980EE0EB0D00B78878 /* PulseCodeRecognizer.m in Sources */,
+				5E73429D0EE0F23D00B78878 /* AppleRemoteRecognizer.m in Sources */,
+				5E6F42720EE23BA90037EA7A /* RemoteEventsManager.m in Sources */,
+				5E28D1990F007F3900BBEAED /* RawPulseLogger.m in Sources */,
+				5EDFA4940F1AB1180010E8F5 /* AppleRemoteViewController.m in Sources */,
+				5EA283660F2589A00051E444 /* MultiDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = iNfrared_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_NAME = iNfrared;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = iNfrared_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_NAME = iNfrared;
+			};
+			name = Release;
+		};
+		5EFE904B0F1AA2F4003C04F2 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Don't Code Sign";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos2.2;
+			};
+			name = Distribution;
+		};
+		5EFE904C0F1AA2F4003C04F2 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = iNfrared_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_NAME = iNfrared;
+			};
+			name = Distribution;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Don't Code Sign";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_PROFILING_CODE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos2.2;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Don't Code Sign";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos2.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "iNfrared" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+				5EFE904C0F1AA2F4003C04F2 /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "iNfrared" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+				5EFE904B0F1AA2F4003C04F2 /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

@@ -1,0 +1,378 @@
+object MainMifareProg: TMainMifareProg
+  Left = 0
+  Top = 0
+  Caption = 'Mifare Programming'
+  ClientHeight = 449
+  ClientWidth = 689
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnActivate = FormActivate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 57
+    Top = 11
+    Width = 56
+    Height = 13
+    Caption = 'Select Port:'
+  end
+  object mMsg: TRichEdit
+    Left = 264
+    Top = 192
+    Width = 417
+    Height = 206
+    TabOrder = 0
+  end
+  object gbAuth: TGroupBox
+    Left = 1
+    Top = 72
+    Width = 257
+    Height = 209
+    Caption = 'Authentication'
+    TabOrder = 1
+    object Label4: TLabel
+      Left = 10
+      Top = 109
+      Width = 69
+      Height = 13
+      Caption = 'Block No (Dec)'
+    end
+    object Label5: TLabel
+      Left = 9
+      Top = 132
+      Width = 76
+      Height = 13
+      Caption = 'Key Value Input'
+    end
+    object tBlkNo: TEdit
+      Left = 97
+      Top = 101
+      Width = 25
+      Height = 21
+      Enabled = False
+      MaxLength = 3
+      TabOrder = 0
+    end
+    object tKeyIn1: TEdit
+      Left = 97
+      Top = 128
+      Width = 25
+      Height = 21
+      Enabled = False
+      MaxLength = 2
+      TabOrder = 1
+    end
+    object tKeyIn2: TEdit
+      Left = 121
+      Top = 128
+      Width = 25
+      Height = 21
+      Enabled = False
+      MaxLength = 2
+      TabOrder = 2
+    end
+    object tKeyIn3: TEdit
+      Left = 145
+      Top = 128
+      Width = 25
+      Height = 21
+      Enabled = False
+      MaxLength = 2
+      TabOrder = 3
+    end
+    object tKeyIn4: TEdit
+      Left = 169
+      Top = 128
+      Width = 25
+      Height = 21
+      Enabled = False
+      MaxLength = 2
+      TabOrder = 4
+    end
+    object tKeyIn5: TEdit
+      Left = 193
+      Top = 128
+      Width = 25
+      Height = 21
+      Enabled = False
+      MaxLength = 2
+      TabOrder = 5
+    end
+    object tKeyIn6: TEdit
+      Left = 217
+      Top = 128
+      Width = 25
+      Height = 21
+      Enabled = False
+      MaxLength = 2
+      TabOrder = 6
+    end
+    object bAuth: TButton
+      Left = 10
+      Top = 160
+      Width = 232
+      Height = 38
+      Caption = '&Authenticate'
+      Enabled = False
+      TabOrder = 7
+      OnClick = bAuthClick
+    end
+  end
+  object gbKeyType: TGroupBox
+    Left = 8
+    Top = 89
+    Width = 235
+    Height = 64
+    Caption = 'Key Type'
+    TabOrder = 2
+    object rbTypeA: TRadioButton
+      Left = 26
+      Top = 32
+      Width = 63
+      Height = 17
+      Caption = 'Type A'
+      Enabled = False
+      TabOrder = 0
+    end
+    object rbTypeB: TRadioButton
+      Left = 122
+      Top = 32
+      Width = 79
+      Height = 17
+      Caption = 'Type B'
+      Enabled = False
+      TabOrder = 1
+    end
+  end
+  object bClear: TButton
+    Left = 264
+    Top = 404
+    Width = 121
+    Height = 36
+    Caption = 'C&lear'
+    TabOrder = 3
+    OnClick = bClearClick
+  end
+  object bReset: TButton
+    Left = 416
+    Top = 405
+    Width = 113
+    Height = 36
+    Caption = '&Reset'
+    TabOrder = 4
+    OnClick = bResetClick
+  end
+  object bQuit: TButton
+    Left = 560
+    Top = 404
+    Width = 121
+    Height = 36
+    Caption = '&Quit'
+    TabOrder = 5
+    OnClick = bQuitClick
+  end
+  object gbValBlk: TGroupBox
+    Left = 264
+    Top = 8
+    Width = 417
+    Height = 177
+    Caption = 'Value Block Functions'
+    TabOrder = 6
+    object Label10: TLabel
+      Left = 16
+      Top = 27
+      Width = 66
+      Height = 13
+      Caption = 'Value Amount'
+    end
+    object Label11: TLabel
+      Left = 16
+      Top = 59
+      Width = 44
+      Height = 13
+      Caption = 'Block No.'
+    end
+    object Label12: TLabel
+      Left = 16
+      Top = 91
+      Width = 60
+      Height = 13
+      Caption = 'Source Block'
+    end
+    object Label13: TLabel
+      Left = 16
+      Top = 123
+      Width = 59
+      Height = 13
+      Caption = 'Target Block'
+    end
+    object tValAmt: TEdit
+      Left = 96
+      Top = 24
+      Width = 121
+      Height = 21
+      Enabled = False
+      MaxLength = 10
+      TabOrder = 0
+    end
+    object bValStor: TButton
+      Left = 248
+      Top = 18
+      Width = 123
+      Height = 25
+      Caption = '&Store Value'
+      Enabled = False
+      TabOrder = 1
+      OnClick = bValStorClick
+    end
+    object bValInc: TButton
+      Left = 247
+      Top = 80
+      Width = 123
+      Height = 25
+      Caption = 'I&ncrement'
+      Enabled = False
+      TabOrder = 2
+      OnClick = bValIncClick
+    end
+    object bValDec: TButton
+      Left = 247
+      Top = 113
+      Width = 123
+      Height = 25
+      Caption = '&Decrement'
+      Enabled = False
+      TabOrder = 3
+      OnClick = bValDecClick
+    end
+    object bValRead: TButton
+      Left = 248
+      Top = 49
+      Width = 123
+      Height = 25
+      Caption = 'R&ead Value'
+      Enabled = False
+      TabOrder = 4
+      OnClick = bValReadClick
+    end
+    object BValRes: TButton
+      Left = 248
+      Top = 144
+      Width = 123
+      Height = 25
+      Caption = 'Co&py Block'
+      Enabled = False
+      TabOrder = 5
+      OnClick = BValResClick
+    end
+    object tValBlk: TEdit
+      Left = 96
+      Top = 56
+      Width = 33
+      Height = 21
+      Enabled = False
+      MaxLength = 3
+      TabOrder = 6
+    end
+    object tValSrc: TEdit
+      Left = 96
+      Top = 88
+      Width = 33
+      Height = 21
+      Enabled = False
+      MaxLength = 3
+      TabOrder = 7
+    end
+    object tValTar: TEdit
+      Left = 96
+      Top = 120
+      Width = 33
+      Height = 21
+      Enabled = False
+      MaxLength = 3
+      TabOrder = 8
+    end
+  end
+  object gbBinOps: TGroupBox
+    Left = 1
+    Top = 287
+    Width = 257
+    Height = 154
+    Caption = 'Binary Block Functions'
+    TabOrder = 7
+    object Label7: TLabel
+      Left = 8
+      Top = 27
+      Width = 40
+      Height = 13
+      Caption = 'Block No'
+    end
+    object Label9: TLabel
+      Left = 8
+      Top = 56
+      Width = 23
+      Height = 13
+      Caption = 'Data'
+    end
+    object bBinRead: TButton
+      Left = 16
+      Top = 104
+      Width = 105
+      Height = 33
+      Caption = 'Read &Block'
+      Enabled = False
+      TabOrder = 0
+      OnClick = bBinReadClick
+    end
+    object bBinUpd: TButton
+      Left = 137
+      Top = 104
+      Width = 105
+      Height = 33
+      Caption = '&Update Block'
+      Enabled = False
+      TabOrder = 1
+      OnClick = bBinUpdClick
+    end
+    object tBinBlk: TEdit
+      Left = 54
+      Top = 21
+      Width = 33
+      Height = 21
+      Enabled = False
+      MaxLength = 3
+      TabOrder = 2
+    end
+    object tBinData: TEdit
+      Left = 8
+      Top = 72
+      Width = 233
+      Height = 21
+      Enabled = False
+      TabOrder = 3
+    end
+  end
+  object cbReader: TComboBox
+    Left = 119
+    Top = 8
+    Width = 139
+    Height = 21
+    Style = csDropDownList
+    ItemHeight = 13
+    TabOrder = 8
+  end
+  object bConnect: TButton
+    Left = 119
+    Top = 35
+    Width = 139
+    Height = 25
+    Caption = '&Connect'
+    TabOrder = 9
+    OnClick = bConnectClick
+  end
+end

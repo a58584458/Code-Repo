@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2009/10/19 11:40:58.843.pas,C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Unit1.pas=C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\MifareProg.pas</Transaction>
+    <Transaction>2009/10/19 11:40:58.843.dfm,C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Unit1.dfm=C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\MifareProg.dfm</Transaction>
+    <Transaction>2009/10/19 11:41:08.562.bdsproj,C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Project1.bdsproj=C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Project1.bdsproj</Transaction>
+    <Transaction>2009/10/19 11:41:24.531.bdsproj,C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Project1.bdsproj=C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\MifareCardProg.bdsproj</Transaction>
+    <Transaction>2009/10/19 11:41:32.015.bdsproj,C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\MifareCardProg.bdsproj=C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\MifareCardProg.bdsproj</Transaction>
+  </Transactions>
+</BorlandProject>

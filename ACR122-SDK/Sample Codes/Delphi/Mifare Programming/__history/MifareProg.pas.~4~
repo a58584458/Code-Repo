@@ -1,0 +1,922 @@
+unit MifareProg;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  ACR122s, Dialogs, StdCtrls, ExtCtrls, ComCtrls;
+
+type
+  TMainMifareProg = class(TForm)
+    mMsg: TRichEdit;
+    gbAuth: TGroupBox;
+    Label4: TLabel;
+    Label5: TLabel;
+    tBlkNo: TEdit;
+    tKeyIn1: TEdit;
+    tKeyIn2: TEdit;
+    tKeyIn3: TEdit;
+    tKeyIn4: TEdit;
+    tKeyIn5: TEdit;
+    tKeyIn6: TEdit;
+    bAuth: TButton;
+    gbKeyType: TGroupBox;
+    rbTypeA: TRadioButton;
+    rbTypeB: TRadioButton;
+    bClear: TButton;
+    bReset: TButton;
+    bQuit: TButton;
+    gbValBlk: TGroupBox;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    tValAmt: TEdit;
+    bValStor: TButton;
+    bValInc: TButton;
+    bValDec: TButton;
+    bValRead: TButton;
+    BValRes: TButton;
+    tValBlk: TEdit;
+    tValSrc: TEdit;
+    tValTar: TEdit;
+    gbBinOps: TGroupBox;
+    Label7: TLabel;
+    Label9: TLabel;
+    bBinRead: TButton;
+    bBinUpd: TButton;
+    tBinBlk: TEdit;
+    tBinData: TEdit;
+    cbPort: TComboBox;
+    Label1: TLabel;
+    bConnect: TButton;
+    procedure FormActivate(Sender: TObject);
+    procedure bQuitClick(Sender: TObject);
+    procedure bConnectClick(Sender: TObject);
+    procedure bResetClick(Sender: TObject);
+    procedure bClearClick(Sender: TObject);
+    procedure bAuthClick(Sender: TObject);
+    procedure bBinReadClick(Sender: TObject);
+    procedure bBinUpdClick(Sender: TObject);
+    procedure bValReadClick(Sender: TObject);
+    procedure bValStorClick(Sender: TObject);
+    procedure bValIncClick(Sender: TObject);
+    procedure bValDecClick(Sender: TObject);
+    procedure BValResClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  MainMifareProg: TMainMifareProg;
+  connActive :BOOL;
+  PrintText : String;
+  hReader : SCARDHANDLE;
+  SendBuff : array [0..256] of Byte;
+  RecvBuff : array [0..256] of Byte;
+  retCode  : DWORD;
+  SendLen : smallint;
+  RecvLen : DWORD;
+
+procedure InitMenu();
+procedure EnableAll(Option : BOOL);
+procedure ClearBuffers();
+procedure displayOut(errType: Integer; retVal: Integer; PrintText: String);
+function TrimInput(TrimType: integer; StrIn: string): string;
+function SendAPDUandDisplay(): Integer;
+function CheckAuthInput(): Integer;
+implementation
+
+{$R *.dfm}
+
+procedure TMainMifareProg.bAuthClick(Sender: TObject);
+var
+UID : array [0 .. 4] of Byte;
+indx : Integer;
+begin
+
+   retCode := CheckAuthInput();
+
+   if retCode = 0 then
+   begin
+
+   ClearBuffers();
+   SendBuff[0] := $D4;
+   SendBuff[1] := $4A;
+   SendBuff[2] := $01;
+   SendBuff[3] := $00;
+
+   SendLen := 4;
+   
+
+   retCode := SendAPDUandDisplay();
+   if retCode = 0 then
+      begin
+         for indx := 8 to RecvBuff[7] + 8 do
+         UID[ indx - 8 ] := RecvBuff[indx];
+
+         ClearBuffers();
+
+         SendBuff[0] :=  $D4;
+         SendBuff[1] :=  $40;
+         SendBuff[2] :=  $01;
+
+         if rbTypeA.Checked = True then
+            begin
+               SendBuff[3] := $60;
+            end
+         else
+            begin
+               SendBuff[3] := $61;
+            end;
+
+          SendBuff[4] := StrToInt('$' + tBlkNo.Text);
+          SendBuff[5] := StrToInt('$' + tKeyIn1.Text);
+          SendBuff[6] := StrToInt('$' + tKeyIn2.Text);
+          SendBuff[7] := StrToInt('$' + tKeyIn3.Text);
+          SendBuff[8] := StrToInt('$' + tKeyIn4.Text);
+          SendBuff[9] := StrToInt('$' + tKeyIn5.Text);
+          SendBuff[10] := StrToInt('$' + tkeyIn6.Text);
+
+          SendBuff[11] := UID[0];
+          SendBuff[12] := UID[1];
+          SendBuff[13] := UID[2];
+          SendBuff[14] := UID[3];
+   
+          SendLen := 15;
+          RecvLen := 255;
+
+          retCode := SendAPDUandDisplay();
+          if retCode = 0 then
+             begin
+                displayOut( 0, 0, 'Authentication Success');
+             end
+          else
+             begin
+                displayOut( 1, 0, 'Authentication failed');
+             end;
+
+          end;
+      end
+   else
+      begin
+         displayOut( 1, 0, 'Authentication failed');
+      end;
+
+
+
+
+end;
+
+procedure TMainMifareProg.bBinReadClick(Sender: TObject);
+var 
+indx : Integer;
+begin
+
+    if tBinBlk.Text = '' then
+    begin
+        tBinBlk.SetFocus;
+        Exit;
+    end;
+
+    ClearBuffers();
+
+    SendBuff[0] := $D4;
+    SendBuff[1] := $40;
+    SendBuff[2] := $01;
+    SendBuff[3] := $30;
+
+    SendBuff[4] := StrToInt( '$' + tBinBlk.Text);
+
+    SendLen := 5;
+    RecvLen := 255;
+
+    retCode := SendAPDUandDisplay();
+
+    PrintText := '';
+
+    if (retCode = 0) and (RecvLen > 4) then
+       begin
+          displayOut(0, 0, 'Read Block Success');
+          for indx := 3 to RecvLen - 1 do
+          begin
+            PrintText := PrintText + chr(RecvBuff[indx]);
+            tBinData.Text := PrintText;
+          end;
+       end
+    else
+       begin
+          displayOut(1, 0, 'Read Block Failed');
+       end;
+    
+end;
+
+procedure TMainMifareProg.bBinUpdClick(Sender: TObject);
+var
+tmpData :String;
+indx : Integer;
+begin
+    //check input
+    if tBinBlk.Text = '' then
+    begin
+        tBinBlk.SetFocus;
+        Exit;
+    end;
+
+    if tBinData.Text = '' then
+    begin
+       tBinData.SetFocus;
+       Exit;
+    end;
+
+    ClearBuffers();
+
+    SendBuff[0] := $D4;
+    SendBuff[1] := $40;
+    SendBuff[2] := $01;
+    SendBuff[3] := $A0;
+
+    SendBuff[4] := StrToInt( '$' + tBinBlk.Text);
+
+    SendLen := 21;
+    RecvLen := 255;
+
+    tmpData := tBinData.Text;
+
+    for indx := 0 to Length(tmpData)-1 do
+    SendBuff[indx+5] := ord(tmpData[indx+1]);
+
+    retCode := SendAPDUandDisplay();
+
+
+end;
+
+procedure TMainMifareProg.bClearClick(Sender: TObject);
+begin
+    MainMifareProg.mMsg.Clear;
+end;
+
+procedure TMainMifareProg.bConnectClick(Sender: TObject);
+var
+FWLEN : DWORD;
+tempstr : array [0..256] of char;
+begin
+    PrintText := MainMifareProg.cbPort.Text;
+
+    retCode := ACR122_OpenA( PrintText, @hReader);
+    if retCode = 0  then
+    begin
+      ConnActive := True;
+      MainMifareProg.bConnect.Enabled := False;
+      MainMifareProg.bReset.Enabled := True;
+
+      EnableAll(True);
+
+      PrintText := 'Connection to ' + PrintText + ' success';
+      displayOut( 0, 0, PrintText);
+
+      PrintText := '';
+
+      retCode := ACR122_GetFirmwareVersionA(hReader, 0, tempstr, @FWLEN);
+      if retCode = 0 then
+      begin
+        PrintText := 'Firmware Version: ' + tempstr;
+        displayOut(5, 0, PrintText);
+      end
+      else
+      begin
+        displayOut( 1, 0, 'Get Firmware Version failed');
+      end;
+    end
+    else
+    begin
+      PrintText := 'Connection to ' + PrintText + ' failed';
+      displayOut( 1, 0, PrintText);
+    end;
+end;
+
+procedure TMainMifareProg.bQuitClick(Sender: TObject);
+begin
+    if ConnActive = true then
+     begin
+        retCode := ACR122_Close(hReader);
+     end;
+    Application.Terminate;
+end;
+
+procedure TMainMifareProg.bResetClick(Sender: TObject);
+begin
+     if ConnActive = true then
+     begin
+        retCode := ACR122_Close(hReader);
+        if retCode = 0 then
+        begin
+             InitMenu();
+             EnableAll(False);
+        end;
+
+     end;
+end;
+
+procedure TMainMifareProg.bValDecClick(Sender: TObject);
+var
+val : ULONG;
+tempval : Integer;
+begin
+
+    ClearBuffers();
+	  SendBuff[0] := $D4;
+	  SendBuff[1] := $40;
+	  SendBuff[2] := $01;
+  	SendBuff[3] := $C0;
+
+    SendBuff[4] := StrToInt( '$' + tValBlk.Text);
+
+	  //Computation of the decrement value
+    tempval := StrToInt(tValAmt.Text);
+
+  	val := tempval Mod 256;
+  	SendBuff[5] := val;
+
+  	val := tempval Div 256;
+  	val := val Mod 256;
+  	SendBuff[6] := val;
+
+  	val := tempval Div 256;
+	  val := val Div 256;
+  	val := val Mod 256;
+  	SendBuff[7] := val;
+
+  	val := tempval Div 256;
+	  val := val Div 256;
+	  val := val Div 256;
+	  val := val Mod 256;
+  	SendBuff[8] := val;
+
+    SendLen := 9;
+  	RecvLen := 255;
+
+    retCode := SendAPDUandDisplay();
+
+    if retCode = 0 then
+       begin
+            ClearBuffers();
+		        SendBuff[0] := $D4;
+		        SendBuff[1] := $40;
+	        	SendBuff[2] := $01;
+	        	SendBuff[3] := $B0;
+
+	        	SendBuff[4] := StrToInt( '$' + tValBlk.Text);
+
+		        SendLen := 5;
+		        RecvLen := 255;
+
+            retCode := SendAPDUandDisplay();
+
+            if retCode = 0 then
+               begin
+                  displayOut( 0, 0, 'Decrement value from block ' + tValBlk.Text + ' success');
+               end
+            else
+               begin
+                  displayOut( 1, 0, 'Decrement value from block failed');
+            end;
+
+       end
+    else
+       begin
+          displayOut( 1, 0, 'Decrement value from block failed');
+       end;
+
+end;
+
+procedure TMainMifareProg.bValIncClick(Sender: TObject);
+var
+val : ULONG;
+tempval : Integer;
+begin
+    ClearBuffers();
+    SendBuff[0] := $D4;
+	  SendBuff[1] := $40;
+	  SendBuff[2] := $01;
+  	SendBuff[3] := $C1;
+
+    SendBuff[4] := StrToInt( '$' + tValBlk.Text);
+
+    //Computation of the increment value
+    tempval := StrToInt(tValAmt.Text);
+
+	  val := tempval Mod 256;
+  	SendBuff[5] := val;
+
+	  val := tempval Div 256;
+	  val := val Mod 256;
+	  SendBuff[6] := val;
+
+  	val := tempval Div 256;
+  	val := val Div 256;
+  	val := val Mod 256;
+  	SendBuff[7] := val;
+
+	  val := tempval Div 256;
+	  val := val Div 256;
+  	val := val Div 256;
+  	val := val Mod 256;
+  	SendBuff[8] := val;
+
+    SendLen := 9;
+    RecvLen := 255;
+
+    retCode := SendAPDUandDisplay();
+
+    if retCode = 0 then
+       begin
+            ClearBuffers();
+		        SendBuff[0] := $D4;
+		        SendBuff[1] := $40;
+	        	SendBuff[2] := $01;
+	        	SendBuff[3] := $B0;
+
+	        	SendBuff[4] := StrToInt( '$' + tValBlk.Text);
+
+		        SendLen := 5;
+		        RecvLen := 255;
+
+            retCode := SendAPDUandDisplay();
+
+            if retCode = 0 then
+               begin
+                  displayOut( 0, 0, 'Increment value from block ' + tValBlk.Text + ' success');
+               end
+            else
+               begin
+                  displayOut( 1, 0, 'Increment value from block failed');
+            end;
+
+       end
+    else
+       begin
+          displayOut( 1, 0, 'Increment value from block failed');
+       end;
+end;
+
+procedure TMainMifareProg.bValReadClick(Sender: TObject);
+var Amount: DWORD;
+begin
+    ClearBuffers();
+    SendBuff[0] := $D4;
+    SendBuff[1] := $40;
+    SendBuff[2] := $01;
+    SendBuff[3] := $30;
+
+    SendBuff[4] := StrToInt( '$' + tValBlk.Text);
+
+    SendLen := 5;
+    RecvLen := 255;
+
+    retCode := SendAPDUandDisplay();
+
+    if retCode = 0 then
+       begin
+
+         Amount := RecvBuff[3];
+         Amount := Amount + (RecvBuff[4] * 256);
+         Amount := Amount + (RecvBuff[5] * 256 * 256);
+	       Amount := Amount + (RecvBuff[6] * 256 * 256 * 256);
+
+         tValAmt.Text := IntToStr(Amount);
+
+         PrintText := 'Read value from block ' + tValBlk.Text + ' success';
+         displayOut( 0, 0, PrintText);
+
+       end
+    else
+       begin
+          displayOut( 1, 0, 'Read value from block failed');
+       end;
+
+
+
+end;
+
+procedure TMainMifareProg.BValResClick(Sender: TObject);
+var
+tempVal : Integer;
+res : Integer;
+begin
+
+  if tValTar.Text = '' then
+   begin
+      tValTar.SetFocus;
+      Exit;
+   end;
+  if tValSrc.Text = '' then
+    begin
+      tValSrc.SetFocus;
+      Exit;
+    end;
+
+ tempVal := StrToInt(tValTar.Text);
+
+ if tempVal < $80 then
+ begin
+     res:= MessageBox(0, 'Critical block chosen to be written. Continue?', 'Warning', +mb_YesNo +mb_ICONWARNING);
+     if res = 7 then
+        Exit;
+ end
+ else
+ begin
+     if (tempVal - 128) Mod 4 = 3 then
+     begin
+        res := MessageBox(0, 'Critical block chosen to be written. Continue?', 'Warning', +mb_YesNo +mb_ICONWARNING);
+        if res = 7 then
+           Exit;
+     end;
+ end;
+
+	//Copy from source block
+	ClearBuffers();
+	SendBuff[0] := $D4;
+	SendBuff[1] := $40;
+	SendBuff[2] := $01;
+	SendBuff[3] := $C2;
+
+  SendBuff[4] := StrToInt('$' + tValSrc.Text);
+
+	SendLen := 5;
+	RecvLen := 255;
+
+  retCode := SendAPDUandDisplay();
+
+  if retCode = 0 then
+  begin
+		 ClearBuffers();
+		 SendBuff[0] := $D4;
+     SendBuff[1] := $40;
+     SendBuff[2] := $01;
+		 SendBuff[3] := $B0;
+
+     SendBuff[4] := StrToInt('$' + tValTar.Text);
+
+     SendLen := 5;
+	   RecvLen := 255;
+
+     retCode := SendAPDUandDisplay();
+
+     if retCode = 0 then
+     begin
+
+         PrintText := 'Copying value to block ' + tValTar.Text + ' success';
+         displayOut( 0, 0, PrintText);
+
+     end
+     else
+     begin
+         displayOut( 1, 0, 'Copy block failed');
+     end;
+
+  end
+  else
+  begin
+         displayOut( 1, 0, 'Copy block failed');
+  end;
+
+end;
+
+procedure TMainMifareProg.bValStorClick(Sender: TObject);
+Var
+pVal : Integer;
+tempVal : Integer;
+temp :ULong;
+begin
+  ClearBuffers();
+
+  SendBuff[0] := $D4;
+  SendBuff[1] := $40;
+  SendBuff[2] := $01;
+  SendBuff[3] := $A0;
+
+  SendBuff[4] := StrToInt( '$' + tValBlk.Text);
+
+  tempval := StrToInt(tValAmt.Text);
+
+  pVal := StrToInt(tValAmt.Text);
+
+  if pVal >= 0 then
+     begin
+     //Computation of pVal
+	  	tempval := pVal Mod 256;
+	  	SendBuff[5] :=  tempval;
+
+		  tempval := pVal div 256;
+		  tempval := tempval Mod 256;
+	  	SendBuff[6] := tempval;
+
+	  	tempval := pVal div 256;
+	  	tempval := tempval div 256;
+	  	tempval := tempval Mod 256;
+	  	SendBuff[7] := tempval;
+
+	    tempval := pVal div 256;
+	  	tempval := tempval div 256;
+		  tempval := tempval div 256;
+	  	tempval := tempval Mod 256;
+	  	SendBuff[8] := tempval;
+
+		//Get complemet of pVal
+	  	SendBuff[9]  := 255 - SendBuff[5];
+		  SendBuff[10] := 255 - SendBuff[6];
+	  	SendBuff[11] := 255 - SendBuff[7];
+		  SendBuff[12] := 255 - SendBuff[8];
+     end
+  else
+     begin
+      temp := abs( pVal );
+
+		//Computation of pVal
+	  	SendBuff[5] := not tempval + 1;
+	  	SendBuff[9] := tempval - 1;
+
+	  	tempval := temp div 256;
+	  	tempval := tempval Mod 256;
+	  	SendBuff[6] := not tempval;
+  		SendBuff[10] := tempval;
+
+	  	tempval := temp div 256;
+	  	tempval := tempval div 256;
+	  	tempval := tempval Mod 256;
+	  	SendBuff[7] := not tempval;
+	  	SendBuff[11] := tempval;
+
+	  	tempval := temp div 256;
+	   	tempval := tempval div 256;
+	  	tempval := tempval div 256;
+	  	tempval := tempval Mod 256;
+		  SendBuff[8] := not tempval;
+	  	SendBuff[12] := tempval;
+     end;
+
+  SendBuff[13] := SendBuff[5];
+	SendBuff[14] := SendBuff[6];
+	SendBuff[15] := SendBuff[7];
+	SendBuff[16] := SendBuff[8];
+
+	SendBuff[17] := SendBuff[4];
+	SendBuff[18] := 255 - SendBuff[4];
+	SendBuff[19] := SendBuff[4];
+	SendBuff[20] := 255 - SendBuff[4];
+
+  SendLen := 21;
+	RecvLen := 255;
+
+  retCode := SendAPDUandDisplay();
+
+  if retCode = 0 then
+  begin
+
+         PrintText := 'Store value from block ' + tValBlk.Text + ' success';
+         displayOut( 0, 0, PrintText);
+
+  end
+  else
+  begin
+         displayOut( 1, 0, 'Store value from block failed');
+  end;
+
+end;
+
+procedure TMainMifareProg.FormActivate(Sender: TObject);
+begin
+   InitMenu();
+end;
+
+procedure InitMenu();
+var
+indx : Integer;
+begin
+
+  connActive := False;
+
+  MainMifareProg.mMsg.Clear;
+
+  DisplayOut(0, 0, 'Program ready');
+
+  MainMifareProg.cbReader.Clear;
+
+  for indx := 1 to 10 do
+  begin
+    PrintText := 'COM' + IntToStr(indx);
+    MainMifareProg.cbReader.AddItem( PrintText, TObject.NewInstance);
+  end;
+    
+  MainMifareProg.cbReader.ItemIndex := 0;
+
+  MainMifareProg.bConnect.Enabled := True;
+  MainMifareProg.bReset.Enabled := False;
+  MainMifareProg.rbTypeA.Checked := True;
+
+  MainMifareProg.tBlkNo.Text := '';
+  MainMifareProg.tKeyIn1.Text := '';
+  MainMifareProg.tKeyIn2.Text := '';
+  MainMifareProg.tKeyIn3.Text := '';
+  MainMifareProg.tKeyIn4.Text := '';
+  MainMifareProg.tKeyIn5.Text := '';
+  MainMifareProg.tKeyIn6.Text := '';
+  MainMifareProg.tValAmt.Text := '';
+  MainMifareProg.tValBlk.Text := '';
+  MainMifareProg.tValSrc.Text := '';
+  MainMifareProg.tValTar.Text := '';
+  MainMifareProg.tBinBlk.Text := '';
+  MainMifareProg.tBinData.Text := '';
+
+
+end;
+
+procedure displayOut(errType: Integer; retVal: Integer; PrintText: String);
+begin
+
+  case errType of
+    0: MainMifareProg.mMsg.SelAttributes.Color := clTeal;      // Notifications
+    1: begin                                                // Error Messages
+         MainMifareProg.mMsg.SelAttributes.Color := clRed;
+         //PrintText := GetScardErrMsg(retVal);
+       end;
+    2: begin
+         MainMifareProg.mMsg.SelAttributes.Color := clBlack;
+         PrintText := '< ' + PrintText;                      // Input data
+       end;
+    3: begin
+         MainMifareProg.mMsg.SelAttributes.Color := clBlack;
+         PrintText := '> ' + PrintText;                      // Output data
+       end;
+    4: MainMifareProg.mMsg.SelAttributes.Color := clRed;        // For ACOS1 error
+    5: MainMifareProg.mMsg.SelAttributes.Color := clBlack;      // Normal Notification
+  end;
+  MainMifareProg.mMsg.Lines.Add(PrintText);
+  MainMifareProg.mMsg.SelAttributes.Color := clBlack;
+  MainMifareProg.mMsg.SetFocus;
+
+end;
+
+function TrimInput(TrimType: integer; StrIn: string): string;
+var indx: integer;
+    tmpStr: String;
+begin
+  tmpStr := '';
+  StrIn := Trim(StrIn);
+  case TrimType of
+    0: begin
+       for indx := 1 to length(StrIn) do
+         if ((StrIn[indx] <> chr(13)) and (StrIn[indx] <> chr(10))) then
+           tmpStr := tmpStr + StrIn[indx];
+       end;
+    1: begin
+       for indx := 1 to length(StrIn) do
+         if StrIn[indx] <> ' ' then
+           tmpStr := tmpStr + StrIn[indx];
+       end;
+  end;
+  TrimInput := tmpStr;
+end;
+
+procedure ClearBuffers();
+var indx: integer;
+begin
+
+  for indx := 0 to 262 do
+    begin
+      SendBuff[indx] := $00;
+      RecvBuff[indx] := $00;
+    end;
+
+end;
+
+function SendAPDUandDisplay(): integer;
+var tmpStr: string;
+    indx: integer;
+begin
+
+    PrintText := '';
+
+    displayOut(0,0,'Command:');
+    for indx := 0 to SendLen - 1 do
+          begin
+            PrintText := PrintText + Format('%.02X ', [SendBuff[indx]]);
+          end;
+    displayOut(3,0, PrintText);
+
+
+    PrintText := '';
+    RecvLen := 255;
+    
+    retCode := ACR122_DirectTransmit(hReader, @SendBuff, SendLen, @RecvBuff, @RecvLen);
+
+    if retCode = 0 then
+    begin
+       displayOut(0,0,'Response:');
+       for indx := 0 to RecvLen - 1 do
+          begin
+            PrintText := PrintText + Format('%.02X ', [RecvBuff[indx]]);
+          end;
+       displayOut(2,0, PrintText);
+    end
+    else
+    begin
+      displayOut( 1, 0, 'Send Command failed');
+    end;
+
+  SendAPDUandDisplay := retCode;
+
+end;
+
+function CheckAuthInput(): Integer;
+begin
+
+  retCode := 0;
+
+   if MainMifareProg.tBlkNo.Text = '' then
+   begin
+      MainMifareProg.tBlkNo.SetFocus;
+      retCode := 1;
+      Exit;
+   end;
+  
+   if MainMifareProg.tKeyIn1.Text = '' then
+   begin
+      MainMifareProg.tKeyIn1.SetFocus;
+      retCode := 1;
+      Exit;
+   end;
+
+   if MainMifareProg.tKeyIn2.Text = '' then
+   begin
+      MainMifareProg.tKeyIn2.SetFocus;
+      retCode := 1;
+      Exit;
+   end;
+
+   if MainMifareProg.tKeyIn3.Text = '' then
+   begin
+      MainMifareProg.tKeyIn3.SetFocus;
+      retCode := 1;
+      Exit;
+   end;
+
+   if MainMifareProg.tKeyIn4.Text = '' then
+   begin
+      MainMifareProg.tKeyIn4.SetFocus;
+      retCode := 1;
+      Exit;
+   end;
+
+   if MainMifareProg.tKeyIn5.Text = '' then
+   begin
+      MainMifareProg.tKeyIn5.SetFocus;
+      retCode := 1;
+      Exit;
+   end;
+
+   if MainMifareProg.tKeyIn6.Text = '' then
+   begin
+      MainMifareProg.tKeyIn6.SetFocus;
+      retCode := 1;
+      Exit;
+   end;
+   
+
+   CheckAuthInput := retCode;
+end;
+
+procedure EnableAll(Option : BOOL);
+begin
+      MainMifareProg.bAuth.Enabled := Option;
+      MainMifareProg.bBinRead.Enabled := Option;
+      MainMifareProg.bBinUpd.Enabled := Option;
+      MainMifareProg.bValStor.Enabled := Option;
+      MainMifareProg.bValInc.Enabled := Option;
+      MainMifareProg.bValDec.Enabled := Option;
+      MainMifareProg.bValRead.Enabled := Option;
+      MainMifareProg.bValRes.Enabled := Option;
+      MainMifareProg.rbTypeA.Enabled := Option;
+      MainMifareProg.rbTypeB.Enabled := Option;
+      MainMifareProg.tBlkNo.Enabled := Option;
+      MainMifareProg.tKeyIn1.Enabled := Option;
+      MainMifareProg.tKeyIn2.Enabled := Option;
+      MainMifareProg.tKeyIn3.Enabled := Option;
+      MainMifareProg.tKeyIn4.Enabled := Option;
+      MainMifareProg.tKeyIn5.Enabled := Option;
+      MainMifareProg.tKeyIn6.Enabled := Option;
+      MainMifareProg.tBinBlk.Enabled := Option;
+      MainMifareProg.tBinData.Enabled := Option;
+      MainMifareProg.tValAmt.Enabled := Option;
+      MainMifareProg.tValBlk.Enabled := Option;
+      MainMifareProg.tValSrc.Enabled := Option;
+      MainMifareProg.tValTar.Enabled := Option;
+end;
+
+
+end.
+
+

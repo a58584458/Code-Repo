@@ -1,0 +1,333 @@
+unit PICCProg;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  ACR122s, Dialogs, StdCtrls, ComCtrls;
+
+type
+  TMainPICCProg = class(TForm)
+    mMsg: TRichEdit;
+    bConnect: TButton;
+    gbSendApdu: TGroupBox;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label7: TLabel;
+    tCLA: TEdit;
+    tINS: TEdit;
+    tP1: TEdit;
+    tP2: TEdit;
+    bSend: TButton;
+    tData: TMemo;
+    bClear: TButton;
+    bReset: TButton;
+    bQuit: TButton;
+    gbGetData: TGroupBox;
+    cbIso14443A: TCheckBox;
+    bGetData: TButton;
+    Label1: TLabel;
+    cbReader: TComboBox;
+    procedure FormActivate(Sender: TObject);
+    procedure bConnectClick(Sender: TObject);
+    procedure bQuitClick(Sender: TObject);
+    procedure bResetClick(Sender: TObject);
+    procedure bSendClick(Sender: TObject);
+    procedure bClearClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  MainPICCProg: TMainPICCProg;
+  connActive :BOOL;
+  PrintText : String;
+  Ret : DWORD;
+  hReader : SCARDHANDLE;
+  SendBuff : array [0..256] of Byte;
+  RecvBuff : array [0..256] of Byte;
+  retCode  : Integer;
+  SendLen : smallint;
+  RecvLen : DWORD;
+
+procedure InitMenu();
+procedure ClearBuffers();
+procedure displayOut(errType: Integer; retVal: Integer; PrintText: String);
+function TrimInput(TrimType: integer; StrIn: string): string;
+function SendAPDUandDisplay(): Integer;
+implementation
+
+{$R *.dfm}
+
+procedure TMainPICCProg.bClearClick(Sender: TObject);
+begin
+  mMsg.Clear;
+end;
+
+procedure TMainPICCProg.bConnectClick(Sender: TObject);
+var
+FWLEN : DWORD;
+tempstr : array [0..256] of char;
+begin
+
+    PrintText := MainPICCProg.cbReader.Text;
+
+    Ret := ACR122_OpenA( PrintText, @hReader);
+    if Ret = 0  then
+    begin
+      ConnActive := TRUE;
+      MainPICCProg.bConnect.Enabled := False;
+      MainPICCProg.bReset.Enabled := True;
+      PrintText := 'Connection to ' + PrintText + ' success';
+      displayOut( 0, 0, PrintText);
+
+      PrintText := '';
+      
+      Ret := ACR122_GetFirmwareVersionA(hReader, 0, tempstr, @FWLEN);
+      if Ret = 0 then
+      begin
+        PrintText := 'Firmware Version: ' + tempstr;
+        displayOut(5, 0, PrintText);
+      end
+      else
+      begin
+        PrintText := GetScardErrMsg(Ret);
+        displayOut( 1, 0, PrintText);
+      end;
+
+    end
+    else
+    begin
+      PrintText := 'Connection to ' + PrintText + ' failed';
+      displayOut( 1, 0, PrintText);
+      PrintText := GetScardErrMsg(Ret);
+      displayOut( 1, 0, PrintText);
+    end;
+end;
+
+procedure TMainPICCProg.bQuitClick(Sender: TObject);
+begin
+  if ConnActive = true then
+     begin
+        Ret := ACR122_Close(hReader);
+     end;
+
+  Application.Terminate;
+end;
+
+procedure TMainPICCProg.bResetClick(Sender: TObject);
+begin
+     if ConnActive = true then
+     begin
+        Ret := ACR122_Close(hReader);
+        if Ret = 0 then
+        begin
+             InitMenu();
+        end;
+
+     end;
+end;
+
+procedure TMainPICCProg.bSendClick(Sender: TObject);
+var tmpData: string;
+    directCmd: Boolean;
+    indx: integer;
+
+begin
+
+  directCmd := True;
+
+  if tCLA.Text = '' then begin
+    tCLA.Text := '00';
+    tCLA.SetFocus;
+    Exit;
+  end;
+
+  tmpData := '';
+  SendLen := 4;
+
+  ClearBuffers();
+  SendBuff[0] := StrToInt('$'+ tCLA.Text);        // CLA
+  if tINS.Text <> '' then
+    SendBuff[1] := StrToInt('$'+ tINS.Text);      // INS
+  if tP1.Text <> '' then
+    directCmd := False;
+  if not directCmd then begin
+    SendBuff[2] := StrToInt('$'+ tP1.Text);       // P1
+    if tP2.Text = '' then begin
+      tP2.Text := '00';                           // P2 : Ask user to confirm
+      tP2.SetFocus;
+      Exit;
+    end
+    else
+      SendBuff[3] := StrToInt('$'+ tP2.Text);     // P2
+
+    tmpData := TrimInput(0, tData.Text);
+    tmpData := TrimInput(1, tmpData);
+    
+    if(Length(tmpData) > 0 ) then begin
+
+          for indx :=0 to Length(tmpData) div 2 - 1 do
+          begin
+              SendBuff[indx+4] := StrToInt('$' + copy(tmpData,(indx*2+1),2)); // Format Data In
+              SendLen := SendLen + 1;
+          end;
+      end
+    else begin
+        SendLen := 4;
+    end;
+
+
+
+  end;
+
+
+  RecvLen := $FF;
+  SendAPDUandDisplay();
+
+end;
+
+procedure TMainPICCProg.FormActivate(Sender: TObject);
+begin
+   InitMenu();
+end;
+
+procedure TMainPICCProg.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  if ConnActive = true then
+     begin
+        Ret := ACR122_Close(hReader);
+     end;
+
+  Application.Terminate;
+end;
+
+procedure InitMenu();
+begin
+
+  connActive := False;
+
+  MainPICCProg.mMsg.Clear;
+
+  DisplayOut(0, 0, 'Program ready');
+
+  MainPICCProg.cbReader.Clear;
+
+  MainPICCProg.cbReader.AddItem('COM1', TObject.NewInstance);
+  MainPICCProg.cbReader.AddItem('COM2', TObject.NewInstance);
+  MainPICCProg.cbReader.AddItem('COM3', TObject.NewInstance);
+  MainPICCProg.cbReader.AddItem('COM4', TObject.NewInstance);
+  MainPICCProg.cbReader.AddItem('COM5', TObject.NewInstance);
+  MainPICCProg.cbReader.AddItem('COM6', TObject.NewInstance);
+  MainPICCProg.cbReader.AddItem('COM7', TObject.NewInstance);
+  MainPICCProg.cbReader.AddItem('COM8', TObject.NewInstance);
+
+  MainPICCProg.bReset.Enabled := False;
+
+
+end;
+
+procedure displayOut(errType: Integer; retVal: Integer; PrintText: String);
+begin
+
+  case errType of
+    0: MainPICCProg.mMsg.SelAttributes.Color := clTeal;      // Notifications
+    1: begin                                                // Error Messages
+         MainPICCProg.mMsg.SelAttributes.Color := clRed;
+         //PrintText := GetScardErrMsg(retVal);
+       end;
+    2: begin
+         MainPICCProg.mMsg.SelAttributes.Color := clBlack;
+         PrintText := '< ' + PrintText;                      // Input data
+       end;
+    3: begin
+         MainPICCProg.mMsg.SelAttributes.Color := clBlack;
+         PrintText := '> ' + PrintText;                      // Output data
+       end;
+    4: MainPICCProg.mMsg.SelAttributes.Color := clRed;        // For ACOS1 error
+    5: MainPICCProg.mMsg.SelAttributes.Color := clBlack;      // Normal Notification
+  end;
+  MainPICCProg.mMsg.Lines.Add(PrintText);
+  MainPICCProg.mMsg.SelAttributes.Color := clBlack;
+  MainPICCProg.mMsg.SetFocus;
+
+end;
+
+function TrimInput(TrimType: integer; StrIn: string): string;
+var indx: integer;
+    tmpStr: String;
+begin
+  tmpStr := '';
+  StrIn := Trim(StrIn);
+  case TrimType of
+    0: begin
+       for indx := 1 to length(StrIn) do
+         if ((StrIn[indx] <> chr(13)) and (StrIn[indx] <> chr(10))) then
+           tmpStr := tmpStr + StrIn[indx];
+       end;
+    1: begin
+       for indx := 1 to length(StrIn) do
+         if StrIn[indx] <> ' ' then
+           tmpStr := tmpStr + StrIn[indx];
+       end;
+  end;
+  TrimInput := tmpStr;
+end;
+
+procedure ClearBuffers();
+var indx: integer;
+begin
+
+  for indx := 0 to 262 do
+    begin
+      SendBuff[indx] := $00;
+      RecvBuff[indx] := $00;
+    end;
+
+end;
+
+function SendAPDUandDisplay(): integer;
+var tmpStr: string;
+    indx: integer;
+begin
+
+    PrintText := '';
+
+    displayOut(0,0,'Command:');
+    for indx := 0 to SendLen - 1 do
+          begin
+            PrintText := PrintText + Format('%.02X ', [SendBuff[indx]]);
+          end;
+    displayOut(3,0, PrintText);
+
+
+    PrintText := '';
+    RecvLen := 255;
+    //displayOut(0,0, IntToStr(hReader));
+    Ret := ACR122_DirectTransmit(hReader, @SendBuff, SendLen, @RecvBuff, @RecvLen);
+
+    if Ret = 0 then
+    begin
+       displayOut(0,0,'Response:');
+       for indx := 0 to RecvLen - 1 do
+          begin
+            PrintText := PrintText + Format('%.02X ', [RecvBuff[indx]]);
+          end;
+       displayOut(2,0, PrintText);
+    end
+    else
+    begin
+      PrintText := GetScardErrMsg(Ret);
+      MainPICCProg.mMsg.Lines.Add(PrintText);
+    end;
+
+  SendAPDUandDisplay := retCode;
+
+end;
+
+end.

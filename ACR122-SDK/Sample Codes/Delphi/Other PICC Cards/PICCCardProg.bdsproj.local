@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2009/10/14 12:24:52.468.pas,C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Unit1.pas=C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\PICCProg.pas</Transaction>
+    <Transaction>2009/10/14 12:24:52.468.dfm,C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Unit1.dfm=C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\PICCProg.dfm</Transaction>
+    <Transaction>2009/10/14 12:25:02.609.bdsproj,C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Project1.bdsproj=C:\Documents and Settings\Alain\My Documents\Borland Studio Projects\Project1.bdsproj</Transaction>
+    <Transaction>2009/10/19 13:32:48.328.bdsproj,E:\Projects\ACR122s\Delphi\PICCProg\Project1.bdsproj=E:\Projects\ACR122s\Delphi\PICCProg\PICCCardProg.bdsproj</Transaction>
+    <Transaction>2009/10/19 13:33:02.625.bdsproj,E:\Projects\ACR122s\Delphi\PICCProg\PICCCardProg.bdsproj=E:\Projects\ACR122s\Delphi\PICCProg\PICCCardProg.bdsproj</Transaction>
+  </Transactions>
+</BorlandProject>

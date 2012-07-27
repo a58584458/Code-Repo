@@ -1,0 +1,1 @@
+C:\PROGRA~1\Java\JDK16~1.0_0\bin\jar cvf ACR122S.jar DeviceProgramming$1.class DeviceProgramming.class Dialog.class GetATR$1.class GetATR.class java.policy.applet KeyManage$1.class KeyManage.class mainApplet.class mainMifareProg$1.class mainMifareProg.class MifareInit.class PICCCardProg$1.class PICCCardProg.class Polling$1.class Polling.class SAMInit.class ACR122 ACS_multiple.PNG

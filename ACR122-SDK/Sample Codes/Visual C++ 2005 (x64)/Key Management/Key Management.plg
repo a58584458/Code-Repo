@@ -1,0 +1,55 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Key Management - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/Key Management.res" /d "_DEBUG" /d "_AFXDLL" "H:\Programs\ACR122S\Sample Codes\Visual C++ 6.0\Key Management\Key Management.rc"" 
+Creating temporary file "C:\DOCUME~1\Wazer\LOCALS~1\Temp\RSP143.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/Key Management.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"H:\Programs\ACR122S\Sample Codes\Visual C++ 6.0\Key Management\ACOS_INIT.cpp"
+"H:\Programs\ACR122S\Sample Codes\Visual C++ 6.0\Key Management\Key Management.cpp"
+"H:\Programs\ACR122S\Sample Codes\Visual C++ 6.0\Key Management\Key ManagementDlg.cpp"
+"H:\Programs\ACR122S\Sample Codes\Visual C++ 6.0\Key Management\SAM_INIT.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Wazer\LOCALS~1\Temp\RSP143.tmp" 
+Creating temporary file "C:\DOCUME~1\Wazer\LOCALS~1\Temp\RSP144.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/Key Management.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"H:\Programs\ACR122S\Sample Codes\Visual C++ 6.0\Key Management\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Wazer\LOCALS~1\Temp\RSP144.tmp" 
+Creating temporary file "C:\DOCUME~1\Wazer\LOCALS~1\Temp\RSP145.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/Key Management.pdb" /debug /machine:I386 /out:"Debug/Key Management.exe" /pdbtype:sept 
+".\Debug\ACOS_INIT.obj"
+".\Debug\Key Management.obj"
+".\Debug\Key ManagementDlg.obj"
+".\Debug\SAM_INIT.obj"
+".\Debug\StdAfx.obj"
+".\Debug\Key Management.res"
+".\acr122.lib"
+]
+Creating command line "link.exe @C:\DOCUME~1\Wazer\LOCALS~1\Temp\RSP145.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+ACOS_INIT.cpp
+Key Management.cpp
+Key ManagementDlg.cpp
+SAM_INIT.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+Key Management.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

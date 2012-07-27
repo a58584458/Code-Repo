@@ -1,0 +1,77 @@
+object CardPolling: TCardPolling
+  Left = 0
+  Top = 0
+  Caption = 'Polling'
+  ClientHeight = 222
+  ClientWidth = 262
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnActivate = FormActivate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 17
+    Top = 8
+    Width = 56
+    Height = 13
+    Caption = 'Select Port:'
+  end
+  object lCard: TLabel
+    Left = 8
+    Top = 192
+    Width = 3
+    Height = 13
+  end
+  object lCardType: TLabel
+    Left = 61
+    Top = 192
+    Width = 3
+    Height = 13
+  end
+  object bConnect: TButton
+    Left = 8
+    Top = 43
+    Width = 249
+    Height = 38
+    Caption = '&Connect'
+    TabOrder = 0
+    OnClick = bConnectClick
+  end
+  object bQuit: TButton
+    Left = 8
+    Top = 131
+    Width = 249
+    Height = 38
+    Caption = '&Quit'
+    TabOrder = 1
+    OnClick = bQuitClick
+  end
+  object bStart: TButton
+    Left = 8
+    Top = 87
+    Width = 249
+    Height = 38
+    Caption = '&Start Polling'
+    TabOrder = 2
+    OnClick = bStartClick
+  end
+  object cbReader: TComboBox
+    Left = 79
+    Top = 8
+    Width = 139
+    Height = 21
+    Style = csDropDownList
+    ItemHeight = 13
+    TabOrder = 3
+  end
+  object Timer1: TTimer
+    OnTimer = Timer1Timer
+    Left = 128
+    Top = 176
+  end
+end

@@ -1,0 +1,131 @@
+unit Polling;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  ACR122s, Dialogs, StdCtrls;
+
+type
+  TCardPolling = class(TForm)
+    bConnect: TButton;
+    bQuit: TButton;
+    bStart: TButton;
+    cbReader: TComboBox;
+    Label1: TLabel;
+    lCard: TLabel;
+    lCardType: TLabel;
+    procedure FormActivate(Sender: TObject);
+    procedure bQuitClick(Sender: TObject);
+    procedure bConnectClick(Sender: TObject);
+    procedure bStartClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  CardPolling: TCardPolling;
+  hReader: SCARDHANDLE;
+  retCode: DWORD;
+  PrintText: String;
+  ConnActive: BOOL;
+  RecvLen : DWORD;
+  RecvBuff : array [0..256] of Byte;
+  check : Integer;
+
+procedure PollCard();
+procedure InitMenu();
+implementation
+
+{$R *.dfm}
+
+procedure InitMenu();
+var
+indx : Integer;
+begin
+
+  connActive := False;
+
+  CardPolling.bConnect.Enabled := True;
+  CardPolling.bStart.Enabled := True;
+
+  CardPolling.cbReader.Clear;
+
+  for indx := 1 to 10 do
+  begin
+    PrintText := 'COM' + IntToStr(indx);
+    CardPolling.cbReader.AddItem( PrintText, TObject.NewInstance);
+  end;
+    
+  CardPolling.cbReader.ItemIndex := 0;
+
+
+end;
+
+procedure TCardPolling.bConnectClick(Sender: TObject);
+begin
+    PrintText := CardPolling.cbReader.Text;
+
+    retCode := ACR122_OpenA( PrintText, @hReader);
+    if retCode = 0  then
+    begin
+      ConnActive := TRUE;
+      CardPolling.bConnect.Enabled := False;
+      CardPolling.bStart.Enabled := True;
+
+      ShowMessage('Connection Success');
+
+    end
+    else
+    begin
+      ShowMessage('Connection Failed');
+    end;
+
+
+end;
+
+procedure TCardPolling.bQuitClick(Sender: TObject);
+begin
+     if ConnActive = true then
+     begin
+        retCode := ACR122_Close(hReader);
+     end;
+    Application.Terminate;
+end;
+
+procedure PollCard();
+begin
+
+    ShowMessage('haha');
+
+    if check = 1 then
+    begin
+       CardPolling.lCardType.Caption := 'haha';
+       check := 0;
+    end
+    else
+    begin
+       CardPolling.lCardType.Caption := 'hehe';
+       check := 1;
+    end;
+
+
+
+end;
+
+procedure TCardPolling.bStartClick(Sender: TObject);
+begin
+
+    check := 1;
+    SetTimer( 1, 1, 2, @PollCard);
+
+end;
+
+procedure TCardPolling.FormActivate(Sender: TObject);
+begin
+    InitMenu();
+end;
+
+end.

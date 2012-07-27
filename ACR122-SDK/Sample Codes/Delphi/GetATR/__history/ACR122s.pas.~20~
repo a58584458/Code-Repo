@@ -1,0 +1,240 @@
+unit ACR122s;
+
+interface
+uses Windows,classes,StdCtrls,SysUtils,Menus;
+
+
+type
+
+SCARDHANDLE = ULONG;
+LPBYTE = PByte;
+LPDWORD = ^DWORD;
+LPSCARDHANDLE = ^SCARDHANDLE;
+
+// Error codes
+//Const ACR122_ERROR_NO_MORE_HANDLES    = ((DWORD) 20000001L);    ///< There are no more handles.
+//Const ACR122_ERROR_UNKNOWN_STATUS     = 020000002;   ///< The status of response is unknown or not returned.
+//Const ACR122_ERROR_OPERATION_FAILURE  = ((DWORD) 0x20000003L);   ///< The operation failed.
+//Const ACR122_ERROR_OPERATION_TIMEOUT  = ((DWORD) 0x20000004L);   ///< The operation timed out.
+//Const ACR122_ERROR_INVALID_CHECKSUM   = ((DWORD) 0x20000005L);   ///< The checksum of response is invalid.
+//Const ACR122_ERROR_INVALID_PARAMETER  = ((DWORD) 0x20000006L);   ///< The command is invalid.
+
+Const SCARD_F_INTERNAL_ERROR           = $80100001; //  An internal consistency check failed
+Const SCARD_E_CANCELLED                = $80100002; //  The action was cancelled by an SCardCancel request
+Const SCARD_E_INVALID_HANDLE           = $80100003; //  The supplied handle was invalid
+Const SCARD_E_INVALID_PARAMETER        = $80100004; //  One or more of the supplied parameters could not be properly interpreted
+Const SCARD_E_INVALID_TARGET           = $80100005; //  Registry startup information is missing or invalid
+Const SCARD_E_NO_MEMORY                = $80100006; //  Not enough memory available to complete this command
+Const SCARD_F_WAITED_TOO_LONG          = $80100007; //  An internal consistency timer has expired
+Const SCARD_E_INSUFFICIENT_BUFFER      = $80100008; //  The data buffer to receive returned data is too small for the returned data
+Const SCARD_E_UNKNOWN_READER           = $80100009; //  The specified reader name is not recognized
+Const SCARD_E_TIMEOUT                  = $8010000A; //  The user-specified timeout value has expired
+Const SCARD_E_SHARING_VIOLATION        = $8010000B; //  The smart card cannot be accessed because of other connections outstanding
+Const SCARD_E_NO_SMARTCARD             = $8010000C; //  The operation requires a Smart Card, but no Smart Card is currently in the device
+Const SCARD_E_UNKNOWN_CARD             = $8010000D; //  The specified smart card name is not recognized
+Const SCARD_E_CANT_DISPOSE             = $8010000E; //  The system could not dispose of the media in the requested manner
+Const SCARD_E_PROTO_MISMATCH           = $8010000F; //  The requested protocols are incompatible with the protocol currently in use with the smart card
+Const SCARD_E_NOT_READY                = $80100010; //  The reader or smart card is not ready to accept commands
+Const SCARD_E_INVALID_VALUE            = $80100011; //  One or more of the supplied parameters values could not be properly interpreted
+Const SCARD_E_SYSTEM_CANCELLED         = $80100012; //  The action was cancelled by the system, presumably to log off or shut down
+Const SCARD_F_COMM_ERROR               = $80100013; //  An internal communications error has been detected
+Const SCARD_F_UNKNOWN_ERROR            = $80100014; //  An internal error has been detected, but the source is unknown
+Const SCARD_E_INVALID_ATR              = $80100015; //  An ATR obtained from the registry is not a valid ATR string
+Const SCARD_E_NOT_TRANSACTED           = $80100016; //  An attempt was made to end a non-existent transaction
+Const SCARD_E_READER_UNAVAILABLE       = $80100017; //  The specified reader is not currently available for use
+Const SCARD_P_SHUTDOWN                 = $80100018; //  PRIVATE -- Internal flag to force server termination
+Const SCARD_E_PCI_TOO_SMALL            = $80100019; //  The PCI Receive buffer was too small
+Const SCARD_E_READER_UNSUPPORTED       = $8010001A; //  The reader driver does not meet minimal requirements for support
+Const SCARD_E_DUPLICATE_READER         = $8010001B; //  The reader driver did not produce a unique reader name
+Const SCARD_E_CARD_UNSUPPORTED         = $8010001C; //  The smart card does not meet minimal requirements for support
+Const SCARD_E_NO_SERVICE               = $8010001D; //  The Smart card resource manager is not running
+Const SCARD_E_SERVICE_STOPPED          = $8010001E; //  The Smart card resource manager has shut down
+Const SCARD_W_UNSUPPORTED_CARD         = $80100065; //  The reader cannot communicate with the smart card, due to ATR configuration conflicts
+Const SCARD_W_UNRESPONSIVE_CARD        = $80100066; //  The smart card is not responding to a reset
+Const SCARD_W_UNPOWERED_CARD           = $80100067; //  Power has been removed from the smart card, so that further communication is not possible
+Const SCARD_W_RESET_CARD               = $80100068; //  The smart card has been reset, so any shared state information is invalid
+Const SCARD_W_REMOVED_CARD             = $80100069; //  The smart card has been removed, so that further communication is not possible
+
+// LED States
+Const ACR122_LED_STATE_OFF = 0; ///< Turn on LED.
+Const ACR122_LED_STATE_ON  = 1;  ///< Turn off LED.
+
+// Buzzer Mode
+Const ACR122_BUZZER_MODE_OFF   = 0; ///< The buzzer will not turn on.
+Const ACR122_BUZZER_MODE_ON_T1 = 1; ///< The buzzer will turn on during T1 duration.
+Const ACR122_BUZZER_MODE_ON_T2 = 2; ///< The buzzer will turn on during T2 duration.
+
+
+Function ACR122_OpenA(portName :String;
+					  phReader :LPSCARDHANDLE): smallint; stdcall; external 'acr122.dll';
+
+Function ACR122_OpenW(portName :LPCWSTR;
+					  phReader :Pointer): smallint; stdcall; external 'acr122.dll';
+
+Function ACR122_Close(hReader :SCARDHANDLE): smallint; stdcall; external 'acr122.dll';
+
+Function ACR122_GetNumSlots(hReader :SCARDHANDLE;
+							pNumSlots :LPDWORD): smallint; stdcall; external 'acr122.dll';
+
+Function ACR122_GetBaudRate(hReader :SCARDHANDLE;
+							pBaudRate :LPDWORD): smallint; stdcall; external 'acr122.dll';
+							
+Function ACR122_SetBaudRate(hReader :SCARDHANDLE;
+							pBaudRate :LPDWORD): smallint; stdcall; external 'acr122.dll';
+
+Function ACR122_GetTimeouts(hReader :SCARDHANDLE;
+							pTimeouts :smallint): smallint; stdcall; external 'acr122.dll';
+
+Function ACR122_SetTimeouts(hReader :SCARDHANDLE;
+							pTimeouts :smallint): smallint; stdcall; external 'acr122.dll';
+
+Function ACR122_GetFirmwareVersionA(hReader :SCARDHANDLE;
+							slotNum :DWORD;
+							firmwareVersion :LPSTR;
+							pFirmwareVersionLen :LPDWORD): smallint; stdcall; external 'acr122.dll';
+
+Function ACR122_GetFirmwareVersionW(hReader :SCARDHANDLE;
+							slotNum :DWORD;
+							firmwareVersion :LPSTR;
+							pFirmwareVersionLen :LPDWORD): smallint; stdcall; external 'acr122.dll';
+
+Function ACR122_DisplayLcdMessageA(hReader :SCARDHANDLE;
+							row :DWORD;
+							col :DWORD;
+							msg :LPCSTR): smallint; stdcall; external 'acr122.dll';
+							
+Function ACR122_DisplayLcdMessageW(hReader :SCARDHANDLE;
+							row :DWORD;
+							col :DWORD;
+							msg :LPCSTR): smallint; stdcall; external 'acr122.dll';
+							
+Function ACR122_ClearLcd(hReader :SCARDHANDLE): smallint; stdcall; external 'acr122.dll';
+
+Function ACR122_EnableLcdBacklight(hReader :SCARDHANDLE;
+								   enabled :BOOL): smallint; stdcall; external 'acr122.dll';
+								   
+Function ACR122_SetLcdContrast(hReader :SCARDHANDLE;
+							   level :DWORD): smallint; stdcall; external 'acr122.dll';
+							   
+Function ACR122_EnableLed(hReader :SCARDHANDLE;
+						  enabled :BOOL): smallint; stdcall; external 'acr122.dll';
+				
+Function ACR122_SetLedStatesWithBeep(hReader :SCARDHANDLE;
+									controls :smallint;
+									numControls :DWORD;
+									t1 :DWORD;
+									t2 :DWORD;
+									numTimes :DWORD;
+									buzzerMode :DWORD): smallint; stdcall; external 'acr122.dll';
+						
+Function ACR122_SetLedStates(hReader :SCARDHANDLE;
+						     states :DWORD;
+							 numStates :DWORD): smallint; stdcall; external 'acr122.dll';
+
+Function ACR122_Beep(hReader :SCARDHANDLE;
+					 buzzerOnDuration :DWORD;
+					 buzzerOffDuration :DWORD;
+					 numTimes :DWORD): smallint; stdcall; external 'acr122.dll';
+
+Function ACR122_DirectTransmit(hReader :SCARDHANDLE;
+							   sendBuffer :LPBYTE;
+							   sendBufferLen :DWORD;
+							   recvBuffer :LPBYTE;
+							   pRecvBufferLen :LPDWORD): smallint; stdcall; external 'acr122.dll';
+
+Function ACR122_PowerOnIcc(hReader :SCARDHANDLE;
+						   slotNum :DWORD;
+						   atr : LPBYTE;
+						   pAtrLen :LPDWORD): smallint; stdcall; external 'acr122.dll';
+						
+Function ACR122_PowerOffIcc(hReader :SCARDHANDLE;
+							slotNum :DWORD): smallint; stdcall; external 'acr122.dll';
+					
+Function ACR122_ExchangeApdu(hReader :SCARDHANDLE;
+							 slotNum :DWORD;
+							 sendBuffer :smallint;
+							 sendBufferLen :DWORD;
+							 recvBuffer :smallint;
+							 pRecvBufferLen :LPDWORD): smallint; stdcall; external 'acr122.dll';
+
+Function GetScardErrMsg(ErrCode : DWORD):string;
+Procedure ParseReaderList(var List : TStringList; Buffer :PChar; BuffLen : integer);
+Procedure LoadListToControl(var ComboBoxControl : TComboBox; Buffer :PChar; BuffLen : integer);
+
+implementation
+
+Function GetScardErrMsg(ErrCode : DWORD):string;
+begin
+    Case ErrCode of
+      SCARD_F_INTERNAL_ERROR       : GetScardErrMsg := 'An internal consistency check failed.';
+      SCARD_E_CANCELLED            : GetScardErrMsg := 'The action was cancelled by an SCardCancel request.';
+      SCARD_E_INVALID_HANDLE       : GetScardErrMsg := 'The supplied handle was invalid.';
+      SCARD_E_INVALID_PARAMETER    : GetScardErrMsg := 'One or more of the supplied parameters could not be properly interpreted.';
+      SCARD_E_INVALID_TARGET       : GetScardErrMsg := 'Registry startup information is missing or invalid.';
+      SCARD_E_NO_MEMORY            : GetScardErrMsg := 'Not enough memory available to complete this command.';
+      SCARD_F_WAITED_TOO_LONG      : GetScardErrMsg := 'An internal consistency timer has expired.';
+      SCARD_E_INSUFFICIENT_BUFFER  : GetScardErrMsg := 'The data buffer to receive returned data is too small for the returned data.';
+      SCARD_E_UNKNOWN_READER       : GetScardErrMsg := 'The specified reader name is not recognized.';
+      SCARD_E_TIMEOUT              : GetScardErrMsg := 'The user-specified timeout value has expired.';
+      SCARD_E_SHARING_VIOLATION    : GetScardErrMsg := 'The smart card cannot be accessed because of other connections outstanding.';
+      SCARD_E_NO_SMARTCARD         : GetScardErrMsg := 'The operation requires a Smart Card, but no Smart Card is currently in the device.';
+      SCARD_E_UNKNOWN_CARD         : GetScardErrMsg := 'The specified smart card name is not recognized.';
+      SCARD_E_CANT_DISPOSE         : GetScardErrMsg := 'The system could not dispose of the media in the requested manner.';
+      SCARD_E_PROTO_MISMATCH       : GetScardErrMsg := 'The requested protocols are incompatible with the protocol currently in use with the smart card.';
+      SCARD_E_NOT_READY            : GetScardErrMsg := 'The reader or smart card is not ready to accept commands.';
+      SCARD_E_INVALID_VALUE        : GetScardErrMsg := 'One or more of the supplied parameters values could not be properly interpreted.';
+      SCARD_E_SYSTEM_CANCELLED     : GetScardErrMsg := 'The action was cancelled by the system, presumably to log off or shut down.';
+      SCARD_F_COMM_ERROR           : GetScardErrMsg := 'An internal communications error has been detected.';
+      SCARD_F_UNKNOWN_ERROR        : GetScardErrMsg := 'An internal error has been detected, but the source is unknown.';
+      SCARD_E_INVALID_ATR          : GetScardErrMsg := 'An ATR obtained from the registry is not a valid ATR string.';
+      SCARD_E_NOT_TRANSACTED       : GetScardErrMsg := 'An attempt was made to end a non-existent transaction.';
+      SCARD_E_READER_UNAVAILABLE   : GetScardErrMsg := 'The specified reader is not currently available for use.';
+      SCARD_P_SHUTDOWN             : GetScardErrMsg := 'PRIVATE -- Internal flag to force server termination.';
+      SCARD_E_PCI_TOO_SMALL        : GetScardErrMsg := 'The PCI Receive buffer was too small.';
+      SCARD_E_READER_UNSUPPORTED   : GetScardErrMsg := 'The reader driver does not meet minimal requirements for support.';
+      SCARD_E_DUPLICATE_READER     : GetScardErrMsg := 'The reader driver did not produce a unique reader name.';
+      SCARD_E_CARD_UNSUPPORTED     : GetScardErrMsg := 'The smart card does not meet minimal requirements for support.';
+      SCARD_E_NO_SERVICE           : GetScardErrMsg := 'The Smart card resource manager is not running.';
+      SCARD_E_SERVICE_STOPPED      : GetScardErrMsg := 'The Smart card resource manager has shut down.';
+      SCARD_W_UNSUPPORTED_CARD     : GetScardErrMsg := 'The reader cannot communicate with the smart card, due to ATR configuration conflicts.';
+      SCARD_W_UNRESPONSIVE_CARD    : GetScardErrMsg := 'The smart card is not responding to a reset.';
+      SCARD_W_UNPOWERED_CARD       : GetScardErrMsg := 'Power has been removed from the smart card, so that further communication is not possible.';
+      SCARD_W_RESET_CARD           : GetScardErrMsg := 'The smart card has been reset, so any shared state information is invalid.';
+      SCARD_W_REMOVED_CARD         : GetScardErrMsg := 'The smart card has been removed, so that further communication is not possible.';
+    else
+      GetScardErrMsg := 'Unknown Error: ' + Format('%d', [ErrCode]);
+    end; // case statement
+end;
+
+Procedure LoadListToControl(var ComboBoxControl : TComboBox; Buffer :PChar; BuffLen : integer);
+var List : TStringList;
+begin
+     List := TStringList.Create;
+     ParseReaderList(List,Buffer,BuffLen);
+     ComboBoxControl.Clear;
+     ComboBoxControl.Items.Assign(List);
+     List.Free;
+end;
+
+procedure ParseReaderList(var List : TStringList; Buffer :PChar; BuffLen : integer);
+var indx : integer;
+    sReader:string;
+begin
+     indx := 0;
+     while (Buffer[indx] <> #0) do begin
+       sReader := '';
+       while (Buffer[indx] <> #0) do begin
+       sReader := sReader + Buffer[indx];
+       inc(indx);
+       end; // while loop
+       sReader := sReader + Buffer[indx];
+       List.Add(sReader);
+       inc(indx);
+     end; // while loop
+end;
+
+end.
+
+
+
+

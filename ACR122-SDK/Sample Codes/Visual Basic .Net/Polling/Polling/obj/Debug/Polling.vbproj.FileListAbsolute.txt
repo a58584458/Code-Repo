@@ -1,0 +1,10 @@
+C:\Documents and Settings\Alain\My Documents\Visual Studio 2008\Projects\Polling\Polling\bin\Debug\Polling.exe
+C:\Documents and Settings\Alain\My Documents\Visual Studio 2008\Projects\Polling\Polling\bin\Debug\Polling.pdb
+C:\Documents and Settings\Alain\My Documents\Visual Studio 2008\Projects\Polling\Polling\bin\Debug\Polling.xml
+C:\Documents and Settings\Alain\My Documents\Visual Studio 2008\Projects\Polling\Polling\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Alain\My Documents\Visual Studio 2008\Projects\Polling\Polling\obj\Debug\Polling.Resources.resources
+C:\Documents and Settings\Alain\My Documents\Visual Studio 2008\Projects\Polling\Polling\obj\Debug\Polling.Polling.resources
+C:\Documents and Settings\Alain\My Documents\Visual Studio 2008\Projects\Polling\Polling\obj\Debug\Polling.vbproj.GenerateResource.Cache
+C:\Documents and Settings\Alain\My Documents\Visual Studio 2008\Projects\Polling\Polling\obj\Debug\Polling.exe
+C:\Documents and Settings\Alain\My Documents\Visual Studio 2008\Projects\Polling\Polling\obj\Debug\Polling.xml
+C:\Documents and Settings\Alain\My Documents\Visual Studio 2008\Projects\Polling\Polling\obj\Debug\Polling.pdb
